@@ -38,10 +38,10 @@ namespace TrainingScheduler
             testerComboBox.Text = "Patrick Humphrey";
 
             // vehicalcombo options
-            vehicalComboBox.Items.Add("Semi rental");
-            vehicalComboBox.Items.Add("Truck rental");
-            vehicalComboBox.Items.Add("Customer truck");
-            vehicalComboBox.Text = "Semi rental";
+            vehicalComboBox.Items.Add("Semi Rental");
+            vehicalComboBox.Items.Add("Truck Rental");
+            vehicalComboBox.Items.Add("Customer Truck");
+            vehicalComboBox.Text = "Semi Rental";
 
             // cdlcombo options
             cdlComboBox.Items.Add("A");
@@ -93,6 +93,17 @@ namespace TrainingScheduler
             lengthComboBox.Items.Add("7hr");
             lengthComboBox.Items.Add("8hr");
             lengthComboBox.Text = "4hr";
+
+            // lengthcombo options
+            idComboBox.Items.Add("1");
+            idComboBox.Text = "1";
+        }
+
+
+        /*ADD TO SCHEDULE BUTTON*/
+        private void button2_Click(object sender, EventArgs e)
+        {
+            firstTextBox.Text = dateTimePicker1.Text;
         }
     }
 }

@@ -39,25 +39,33 @@
             this.vehicalComboBox = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.brakeComboBox = new System.Windows.Forms.ComboBox();
+            this.transComboBox = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.cdlComboBox = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.lastTextBox = new System.Windows.Forms.TextBox();
-            this.FirstTextBox = new System.Windows.Forms.TextBox();
+            this.firstTextBox = new System.Windows.Forms.TextBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.lengthComboBox = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.tenativeComboBox = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.timeComboBox = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.transComboBox = new System.Windows.Forms.ComboBox();
-            this.brakeComboBox = new System.Windows.Forms.ComboBox();
             this.panel3 = new System.Windows.Forms.Panel();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.tenativeComboBox = new System.Windows.Forms.ComboBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.lengthComboBox = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.idComboBox = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -170,7 +178,7 @@
             this.panel1.Controls.Add(this.cdlComboBox);
             this.panel1.Controls.Add(this.label10);
             this.panel1.Controls.Add(this.lastTextBox);
-            this.panel1.Controls.Add(this.FirstTextBox);
+            this.panel1.Controls.Add(this.firstTextBox);
             this.panel1.Controls.Add(this.vehicalComboBox);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.testerComboBox);
@@ -183,6 +191,42 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(512, 136);
             this.panel1.TabIndex = 10;
+            // 
+            // brakeComboBox
+            // 
+            this.brakeComboBox.FormattingEnabled = true;
+            this.brakeComboBox.Location = new System.Drawing.Point(370, 97);
+            this.brakeComboBox.Name = "brakeComboBox";
+            this.brakeComboBox.Size = new System.Drawing.Size(121, 21);
+            this.brakeComboBox.TabIndex = 13;
+            // 
+            // transComboBox
+            // 
+            this.transComboBox.FormattingEnabled = true;
+            this.transComboBox.Location = new System.Drawing.Point(112, 95);
+            this.transComboBox.Name = "transComboBox";
+            this.transComboBox.Size = new System.Drawing.Size(121, 21);
+            this.transComboBox.TabIndex = 12;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(12, 93);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(54, 20);
+            this.label12.TabIndex = 11;
+            this.label12.Text = "Trans";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(291, 95);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(65, 20);
+            this.label11.TabIndex = 10;
+            this.label11.Text = "Brakes";
             // 
             // cdlComboBox
             // 
@@ -209,16 +253,22 @@
             this.lastTextBox.Size = new System.Drawing.Size(100, 20);
             this.lastTextBox.TabIndex = 2;
             // 
-            // FirstTextBox
+            // firstTextBox
             // 
-            this.FirstTextBox.Location = new System.Drawing.Point(112, 17);
-            this.FirstTextBox.Name = "FirstTextBox";
-            this.FirstTextBox.Size = new System.Drawing.Size(100, 20);
-            this.FirstTextBox.TabIndex = 1;
+            this.firstTextBox.Location = new System.Drawing.Point(112, 17);
+            this.firstTextBox.Name = "firstTextBox";
+            this.firstTextBox.Size = new System.Drawing.Size(100, 20);
+            this.firstTextBox.TabIndex = 1;
             // 
             // panel2
             // 
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel2.Controls.Add(this.button6);
+            this.panel2.Controls.Add(this.button5);
+            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.idComboBox);
+            this.panel2.Controls.Add(this.label15);
             this.panel2.Controls.Add(this.lengthComboBox);
             this.panel2.Controls.Add(this.label14);
             this.panel2.Controls.Add(this.tenativeComboBox);
@@ -229,8 +279,44 @@
             this.panel2.Controls.Add(this.label8);
             this.panel2.Location = new System.Drawing.Point(13, 245);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(512, 108);
+            this.panel2.Size = new System.Drawing.Size(512, 137);
             this.panel2.TabIndex = 11;
+            // 
+            // lengthComboBox
+            // 
+            this.lengthComboBox.FormattingEnabled = true;
+            this.lengthComboBox.Location = new System.Drawing.Point(375, 62);
+            this.lengthComboBox.Name = "lengthComboBox";
+            this.lengthComboBox.Size = new System.Drawing.Size(121, 21);
+            this.lengthComboBox.TabIndex = 13;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(294, 60);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(65, 20);
+            this.label14.TabIndex = 12;
+            this.label14.Text = "Length";
+            // 
+            // tenativeComboBox
+            // 
+            this.tenativeComboBox.FormattingEnabled = true;
+            this.tenativeComboBox.Location = new System.Drawing.Point(375, 21);
+            this.tenativeComboBox.Name = "tenativeComboBox";
+            this.tenativeComboBox.Size = new System.Drawing.Size(121, 21);
+            this.tenativeComboBox.TabIndex = 11;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(291, 23);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(77, 20);
+            this.label13.TabIndex = 10;
+            this.label13.Text = "Tenative";
             // 
             // timeComboBox
             // 
@@ -267,42 +353,6 @@
             this.label8.TabIndex = 9;
             this.label8.Text = "Date";
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(291, 95);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(65, 20);
-            this.label11.TabIndex = 10;
-            this.label11.Text = "Brakes";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(12, 93);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(54, 20);
-            this.label12.TabIndex = 11;
-            this.label12.Text = "Trans";
-            // 
-            // transComboBox
-            // 
-            this.transComboBox.FormattingEnabled = true;
-            this.transComboBox.Location = new System.Drawing.Point(112, 95);
-            this.transComboBox.Name = "transComboBox";
-            this.transComboBox.Size = new System.Drawing.Size(121, 21);
-            this.transComboBox.TabIndex = 12;
-            // 
-            // brakeComboBox
-            // 
-            this.brakeComboBox.FormattingEnabled = true;
-            this.brakeComboBox.Location = new System.Drawing.Point(370, 97);
-            this.brakeComboBox.Name = "brakeComboBox";
-            this.brakeComboBox.Size = new System.Drawing.Size(121, 21);
-            this.brakeComboBox.TabIndex = 13;
-            // 
             // panel3
             // 
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -320,41 +370,84 @@
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             // 
-            // label13
+            // label15
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(291, 23);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(77, 20);
-            this.label13.TabIndex = 10;
-            this.label13.Text = "Tenative";
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(12, 98);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(28, 20);
+            this.label15.TabIndex = 14;
+            this.label15.Text = "ID";
             // 
-            // tenativeComboBox
+            // idComboBox
             // 
-            this.tenativeComboBox.FormattingEnabled = true;
-            this.tenativeComboBox.Location = new System.Drawing.Point(375, 21);
-            this.tenativeComboBox.Name = "tenativeComboBox";
-            this.tenativeComboBox.Size = new System.Drawing.Size(121, 21);
-            this.tenativeComboBox.TabIndex = 11;
+            this.idComboBox.FormattingEnabled = true;
+            this.idComboBox.Location = new System.Drawing.Point(64, 100);
+            this.idComboBox.Name = "idComboBox";
+            this.idComboBox.Size = new System.Drawing.Size(121, 21);
+            this.idComboBox.TabIndex = 15;
             // 
-            // label14
+            // button1
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(294, 60);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(65, 20);
-            this.label14.TabIndex = 12;
-            this.label14.Text = "Length";
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button1.Location = new System.Drawing.Point(191, 100);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(58, 23);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "Remove";
+            this.button1.UseVisualStyleBackColor = true;
             // 
-            // lengthComboBox
+            // button2
             // 
-            this.lengthComboBox.FormattingEnabled = true;
-            this.lengthComboBox.Location = new System.Drawing.Point(375, 62);
-            this.lengthComboBox.Name = "lengthComboBox";
-            this.lengthComboBox.Size = new System.Drawing.Size(121, 21);
-            this.lengthComboBox.TabIndex = 13;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button2.Location = new System.Drawing.Point(315, 100);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(57, 23);
+            this.button2.TabIndex = 17;
+            this.button2.Text = "Train";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button3.Location = new System.Drawing.Point(13, 388);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 13;
+            this.button3.Text = "Clear";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button4.Location = new System.Drawing.Point(531, 388);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(75, 23);
+            this.button4.TabIndex = 14;
+            this.button4.Text = "Print";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button5.Location = new System.Drawing.Point(378, 100);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(57, 23);
+            this.button5.TabIndex = 18;
+            this.button5.Text = "Test";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.button6.Location = new System.Drawing.Point(441, 100);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(57, 23);
+            this.button6.TabIndex = 19;
+            this.button6.Text = "Retest";
+            this.button6.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -362,6 +455,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(845, 423);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -397,7 +492,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox lastTextBox;
-        private System.Windows.Forms.TextBox FirstTextBox;
+        private System.Windows.Forms.TextBox firstTextBox;
         private System.Windows.Forms.ComboBox timeComboBox;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox cdlComboBox;
@@ -412,6 +507,14 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox lengthComboBox;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox idComboBox;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button button5;
     }
 }
 
