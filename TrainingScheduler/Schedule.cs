@@ -9,6 +9,17 @@ namespace TrainingScheduler
     class Schedule
     {
         public Driver customer;
-        public DateTime scheduledTime;
+        public string date;
+        public string time;
+        public string id;
+        public int hoursTrained = 0;
+        public string hours;
+        public string tentative;
+
+        public void  setHours(string h)
+        {
+            hoursTrained = Int32.Parse(h[0].ToString());
+            hours = h;
+        } 
     }
 }

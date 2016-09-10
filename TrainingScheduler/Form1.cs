@@ -12,6 +12,8 @@ namespace TrainingScheduler
 {
     public partial class Form1 : Form
     {
+        private List<Schedule> customerSchedule = new List<Schedule>();
+
         public Form1()
         {
             InitializeComponent();
@@ -19,6 +21,7 @@ namespace TrainingScheduler
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
             /*// make it readonly
             //trainerComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             testerComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -100,10 +103,64 @@ namespace TrainingScheduler
         }
 
 
-        /*ADD TO SCHEDULE BUTTON*/
+        /*ADD Training TO SCHEDULE BUTTON*/
         private void button2_Click(object sender, EventArgs e)
         {
-            firstTextBox.Text = dateTimePicker1.Text;
+            //firstTextBox.Text = dateTimePicker1.Value.ToShortDateString();
+
+            //create driver object
+            Driver dObj = new Driver();
+            dObj.first_name = firstTextBox.Text;
+            dObj.last_name = lastTextBox.Text;
+            dObj.trainer = trainerComboBox.Text;
+            dObj.tester = testerComboBox.Text;
+            dObj.vehical = vehicalComboBox.Text;
+            dObj.trans = transComboBox.Text;
+            dObj.brakes = brakeComboBox.Text;
+            dObj.setRate(dObj.vehical);
+
+            //create schedule obj
+            Schedule sObj = new Schedule();
+            sObj.customer = dObj;
+            sObj.date = dateTimePicker1.Value.ToShortDateString();
+            sObj.time = timeComboBox.Text;
+            sObj.id = idComboBox.Text;
+            sObj.tentative = tenativeComboBox.Text;
+            sObj.setHours(lengthComboBox.Text);
+            //add to list
+            try
+            {
+                customerSchedule.Add(sObj);
+            }
+            catch
+            {
+                //do nothing
+            }
+            //print training in box
+            printTrainingToBox(customerSchedule);
+        }
+
+        private void printTrainingToBox(List<Schedule> s)
+        {
+            int total = 0;
+            richTextBox1.Clear();
+            //print training header
+            richTextBox1.AppendText("Training\nID\tDate\tTime\n");
+            //print data for each training session
+            for (int i = 0; i < customerSchedule.Count; i++)
+            {
+                richTextBox1.AppendText(s[i].id + "\t" + s[i].date + "\t" + s[i].time + "\t");
+                if (s[i].tentative == "Yes")
+                {
+                    richTextBox1.AppendText("(Tenative)\n");
+                }
+                else
+                {
+                    richTextBox1.AppendText("\n");
+                }
+                total += s[i].hoursTrained * s[i].customer.trainingRate;
+            }
+            richTextBox1.AppendText("Total: $" + total);
         }
     }
 }

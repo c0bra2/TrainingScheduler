@@ -16,5 +16,26 @@ namespace TrainingScheduler
         public string vehical;
         public string trans;
         public string brakes;
+        public int trainingRate;
+        public int testingRate;
+
+        public void setRate(string v)
+        {
+            if (v == "Semi Rental")
+            {
+                trainingRate = 150;
+                testingRate = 450;
+            }
+            else if (v == "Truck Rental")
+            {
+                trainingRate = 150;
+                testingRate = 400;
+            }
+            else 
+            {
+                trainingRate = 75;
+                testingRate = 200;
+            }
+        }
     }
 }
