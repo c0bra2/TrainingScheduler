@@ -7,12 +7,3 @@ c:\users\foggy\documents\visual studio 2015\Projects\TrainingScheduler\TrainingS
 c:\users\foggy\documents\visual studio 2015\Projects\TrainingScheduler\TrainingScheduler\obj\Debug\TrainingScheduler.csproj.GenerateResource.Cache
 c:\users\foggy\documents\visual studio 2015\Projects\TrainingScheduler\TrainingScheduler\obj\Debug\TrainingScheduler.exe
 c:\users\foggy\documents\visual studio 2015\Projects\TrainingScheduler\TrainingScheduler\obj\Debug\TrainingScheduler.pdb
-C:\Users\Jakeob makeup\Documents\TrainingScheduler-master\TrainingScheduler\bin\Debug\TrainingScheduler.exe.config
-C:\Users\Jakeob makeup\Documents\TrainingScheduler-master\TrainingScheduler\obj\Debug\TrainingScheduler.exe
-C:\Users\Jakeob makeup\Documents\TrainingScheduler-master\TrainingScheduler\obj\Debug\TrainingScheduler.pdb
-C:\Users\Jakeob makeup\Documents\TrainingScheduler-master\TrainingScheduler\bin\Debug\TrainingScheduler.exe
-C:\Users\Jakeob makeup\Documents\TrainingScheduler-master\TrainingScheduler\bin\Debug\TrainingScheduler.pdb
-C:\Users\Jakeob makeup\Documents\TrainingScheduler-master\TrainingScheduler\obj\Debug\TrainingScheduler.csprojResolveAssemblyReference.cache
-C:\Users\Jakeob makeup\Documents\TrainingScheduler-master\TrainingScheduler\obj\Debug\TrainingScheduler.Form1.resources
-C:\Users\Jakeob makeup\Documents\TrainingScheduler-master\TrainingScheduler\obj\Debug\TrainingScheduler.Properties.Resources.resources
-C:\Users\Jakeob makeup\Documents\TrainingScheduler-master\TrainingScheduler\obj\Debug\TrainingScheduler.csproj.GenerateResource.Cache
