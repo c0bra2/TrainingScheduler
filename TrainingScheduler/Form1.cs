@@ -126,6 +126,8 @@ namespace TrainingScheduler
             sObj.tentative = tenativeComboBox.Text;
             sObj.setHours(lengthComboBox.Text);
             sObj.type = "train";
+            idComboBox.Items.Add((Int32.Parse(idComboBox.Text) + 1).ToString());
+            idComboBox.Text = (Int32.Parse(idComboBox.Text) + 1).ToString();
             //add to list
             try
             {
@@ -139,107 +141,11 @@ namespace TrainingScheduler
             printTrainingToBox(customerSchedule);
             printTestingToBox(customerSchedule);
         }
-        private void printTestingToBox(List<Schedule> s){
-            bool testDate = false;
-            for (int i = 0; i < s.Count; i++)
-            {
-                if (s[i].type == "test")
-                {
-                    testDate = true;
-                }
-            }
-            if (!testDate)
-            {
-                return;
-            }
-            else{
-            int total = 0;
-            //print testing header
-            richTextBox1.AppendText("\n\n\nTesting\n" + padString("ID", 5)  + padString("Date",20) + padString("Time",15) + "\n");
-            //print data for each training session
-            for (int i = 0; i < s.Count && s[i].type == "test"; i++)
-            {
-                richTextBox1.AppendText(padString(s[i].id, 6) +
-                    padString(s[i].date,15) + padString(s[i].time,12));
-                if (s[i].customer.trainer == "Chris Humphrey")
-                {
-                    richTextBox1.AppendText("w/Chris ");
-                }
-                else if (s[i].customer.trainer == "Patrick Humphrey")
-                {
-                    richTextBox1.AppendText("w/Pat ");
-                }
-                else if (s[i].customer.trainer == "Ed Humphrey")
-                {
-                    richTextBox1.AppendText("w/Ed ");  
-                }
-                if (s[i].tentative == "Yes")
-                {
-                    richTextBox1.AppendText(padString("(T)\n", 0));
-                }
-                else
-                {
-                    richTextBox1.AppendText("\n");
-                }
-                total += s[i].hoursTrained * s[i].customer.trainingRate;
-            }
-            richTextBox1.AppendText("Training Cost: $" + total);
-            }
-        }
-
-        private void printTrainingToBox(List<Schedule> s)
-        {
-            int total = 0;
-            richTextBox1.Clear();
-            //print training header
-            richTextBox1.AppendText("Training\n" + padString("ID", 5) + 
-                padString("Length", 11) + padString("Date",20) + padString("Time",15) + "\n");
-            //print data for each training session
-            for (int i = 0; i < s.Count && s[i].type == "train"; i++)
-            {
-                richTextBox1.AppendText(padString(s[i].id, 6) + padString(s[i].hours,14) + 
-                    padString(s[i].date,15) + padString(s[i].time,12));
-                if (s[i].customer.trainer == "Chris Humphrey")
-                {
-                    richTextBox1.AppendText("w/Chris ");
-                }
-                else if (s[i].customer.trainer == "Patrick Humphrey")
-                {
-                    richTextBox1.AppendText("w/Pat ");
-                }
-                else if (s[i].customer.trainer == "Ed Humphrey")
-                {
-                    richTextBox1.AppendText("w/Ed ");  
-                }
-                if (s[i].tentative == "Yes")
-                {
-                    richTextBox1.AppendText(padString("(T)\n", 0));
-                }
-                else
-                {
-                    richTextBox1.AppendText("\n");
-                }
-                total += s[i].hoursTrained * s[i].customer.trainingRate;
-            }
-            richTextBox1.AppendText("Training Cost: $" + total);
-        }
-
-        public string padString(string s, int p){
-            int count = 0;
-            for (int i = 0; i < s.Length; i++){
-                count++;
-            }
-            p -= count;
-            for (;p > 0; p--){
-                s += " ";
-            }
-            return s;
-        }
 
         //test button clicked
         private void button5_Click(object sender, EventArgs e)
         {
-                        //create driver object
+            //create driver object
             Driver dObj = new Driver();
             dObj.first_name = firstTextBox.Text;
             dObj.last_name = lastTextBox.Text;
@@ -259,6 +165,8 @@ namespace TrainingScheduler
             sObj.tentative = tenativeComboBox.Text;
             sObj.setHours(lengthComboBox.Text);
             sObj.type = "test";
+            idComboBox.Items.Add((Int32.Parse(idComboBox.Text) + 1).ToString());
+            idComboBox.Text = (Int32.Parse(idComboBox.Text) + 1).ToString();
             //add to list
             try
             {
@@ -271,6 +179,122 @@ namespace TrainingScheduler
             //print training in box and testing
             printTrainingToBox(customerSchedule);
             printTestingToBox(customerSchedule);
+        }
+
+        //RUNS WHEN REMOVE ID BUTTON CLICKED
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //remove the item of specified ID
+            int removeIndex = 0;
+            for (int i = 0; i < customerSchedule.Count, i++){
+                if (customerSchedule[i].id == idComboBox.Text){
+                    removeIndex = i;
+                }
+            }
+            customerSchedule.RemoveAt(removeIndex);
+        }
+
+        private void printTestingToBox(List<Schedule> s){
+            bool testDate = false;
+            for (int i = 0; i < s.Count; i++)
+            {
+                if (s[i].type == "test")
+                {
+                    testDate = true;
+                }
+            }
+            if (!testDate)
+            {
+                return;
+            }
+            else{
+            int total = 0;
+            //print testing header
+            richTextBox1.AppendText("\n\n\nTesting\n" + padString("ID", 5)  + padString("Date",20) + padString("Time",15) + "\n");
+            //print data for each testing session
+            for (int i = 0; i < s.Count; i++)
+            {
+                if (s[i].type == "test")
+                {
+                    richTextBox1.AppendText(padString(s[i].id, 6) +
+                        padString(s[i].date, 15) + padString(s[i].time, 12));
+                    if (s[i].customer.tester == "Chris Humphrey")
+                    {
+                        richTextBox1.AppendText("w/Chris ");
+                    }
+                    else if (s[i].customer.tester == "Patrick Humphrey")
+                    {
+                        richTextBox1.AppendText("w/Pat ");
+                    }
+                    else if (s[i].customer.tester == "Ed Humphrey")
+                    {
+                        richTextBox1.AppendText("w/Ed ");
+                    }
+                    if (s[i].tentative == "Yes")
+                    {
+                        richTextBox1.AppendText(padString("(T)\n", 0));
+                    }
+                    else
+                    {
+                        richTextBox1.AppendText("\n");
+                    }
+                    total += s[i].hoursTrained * s[i].customer.trainingRate;
+                }
+            }
+            richTextBox1.AppendText("Testing Cost: $" + total);
+            }
+        }
+
+        private void printTrainingToBox(List<Schedule> s)
+        {
+            int total = 0;
+            richTextBox1.Clear();
+            //print training header
+            richTextBox1.AppendText("Training\n" + padString("ID", 5) + 
+                padString("Length", 11) + padString("Date",20) + padString("Time",15) + "\n");
+            //print data for each training session
+            for (int i = 0; i < s.Count; i++)
+            {
+                if (s[i].type == "train")
+                {
+                    richTextBox1.AppendText(padString(s[i].id, 6) + padString(s[i].hours, 14) +
+                        padString(s[i].date, 15) + padString(s[i].time, 12));
+                    if (s[i].customer.trainer == "Chris Humphrey")
+                    {
+                        richTextBox1.AppendText("w/Chris ");
+                    }
+                    else if (s[i].customer.trainer == "Patrick Humphrey")
+                    {
+                        richTextBox1.AppendText("w/Pat ");
+                    }
+                    else if (s[i].customer.trainer == "Ed Humphrey")
+                    {
+                        richTextBox1.AppendText("w/Ed ");
+                    }
+                    if (s[i].tentative == "Yes")
+                    {
+                        richTextBox1.AppendText(padString("(T)\n", 0));
+                    }
+                    else
+                    {
+                        richTextBox1.AppendText("\n");
+                    }
+                    total += s[i].hoursTrained * s[i].customer.trainingRate;
+                }
+            }
+            richTextBox1.AppendText("Training Cost: $" + total);
+        }
+
+        public string padString(string s, int p){
+            int count = 0;
+            for (int i = 0; i < s.Length; i++){
+                count++;
+            }
+            p -= count;
+            for (;p > 0; p--){
+                s += " ";
+            }
+            return s;
         }
     }
 }
