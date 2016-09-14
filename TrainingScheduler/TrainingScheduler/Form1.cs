@@ -165,7 +165,7 @@ namespace TrainingScheduler
             sObj.time = timeComboBox.Text;
             sObj.id = idComboBox.Text;
             sObj.tentative = tenativeComboBox.Text;
-            sObj.setHours(lengthComboBox.Text);
+            sObj.setHours("3");
             sObj.type = "test";
             idComboBox.Items.Add((Int32.Parse(idComboBox.Text) + 1).ToString());
             idComboBox.Text = (Int32.Parse(idComboBox.Text) + 1).ToString();
@@ -333,6 +333,7 @@ namespace TrainingScheduler
         /// <param name="e"></param>
         private void button4_Click(object sender, EventArgs e)
         {
+            int totalHours = 0;
             string filename;
             string output = "";
             Driver customer = customerSchedule[0].customer;
@@ -346,20 +347,46 @@ namespace TrainingScheduler
             output += "Training Rate $" + customer.trainingRate + "/hr\r\n";
             output += "Testing Rate $" + customer.testingRate + "\r\n";
             output += "\r\n\r\n";
-            output += "Training Schedule\r\n" + padString("Date", 13) + padString("Time", 14) + padString("Length", 16) + padString("Trainer",10) + "\r\n";
+            output += "Training Schedule\r\n" + padString("Date", 19) + padString("Time", 14) + padString("Length", 17) + padString("Trainer",10) + "\r\n";
             for (int i = 0; i < 65; i++)
             {
                 output += "-";
             }
             output += "\r\n";
+            for (int i = 0; i < customerSchedule.Count; i++)
+            {
+                if (customerSchedule[i].type == "train")
+                {
+                    output += padString(customerSchedule[i].date, 19) + padString(customerSchedule[i].time, 14) + padString(customerSchedule[i].hours, 17) + padString(customerSchedule[i].customer.trainer, 20);
+                    if (customerSchedule[i].tentative == "Yes")
+                    {
+                        output += "(Tenative)\r\n";
+                    }
+                    output += "\r\n";
+                    totalHours += customerSchedule[i].hoursTrained;
+                }
+            }
 
             output += "\r\n\r\n\r\n\r\n\r\n";
-            output += "Testing Schedule\r\n" + padString("Date", 13) + padString("Time", 14) + padString("Length", 16) + padString("Tester", 10) + "\r\n";
+            output += "Testing Schedule\r\n" + padString("Date", 19) + padString("Time", 14) + padString("Length", 17) + padString("Trainer", 10) + "\r\n";
             for (int i = 0; i < 65; i++)
             {
                 output += "-";
             }
             output += "\r\n";
+            for (int i = 0; i < customerSchedule.Count; i++)
+            {
+                if (customerSchedule[i].type == "test")
+                {
+                    output += padString(customerSchedule[i].date, 19) + padString(customerSchedule[i].time, 14) + padString(customerSchedule[i].hours, 17) + padString(customerSchedule[i].customer.tester, 20);
+                    if (customerSchedule[i].tentative == "Yes")
+                    {
+                        output += "(Tenative)\r\n";
+                    }
+                    output += "\r\n";
+                    totalHours += customerSchedule[i].hoursTrained;
+                }
+            }
 
             output += "\r\n\r\n\r\n\r\n\r\n\r\n";
             output += "Summary (Totals subject to change if deviating from this outline)\r\n";
@@ -368,6 +395,9 @@ namespace TrainingScheduler
                 output += "-";
             }
             output += "\r\n";
+            output += "Training (" + totalHours + "hrs * $" + customer.trainingRate + "/hr) = $" + totalHours * customer.trainingRate + "\r\n";
+            output += "Test = $" + customer.testingRate + "\r\n\r\n";
+            output += "Grand Total = $" + (totalHours * customer.trainingRate) + customer.testingRate;
 
             System.IO.File.WriteAllText(filename, output);
             System.Diagnostics.Process.Start(filename);
