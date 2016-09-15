@@ -414,5 +414,55 @@ namespace TrainingScheduler
             printTrainingToBox(customerSchedule);
             printTestingToBox(customerSchedule);
         }
+
+        private void cdlComboBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            cdlComboBox.DroppedDown = true;
+        }
+
+        private void transComboBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            transComboBox.DroppedDown = true;
+        }
+
+        private void trainerComboBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            trainerComboBox.DroppedDown = true;
+        }
+
+        private void testerComboBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            testerComboBox.DroppedDown = true;
+        }
+
+        private void vehicalComboBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            vehicalComboBox.DroppedDown = true;
+        }
+
+        private void brakeComboBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            brakeComboBox.DroppedDown = true;
+        }
+
+        private void timeComboBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            timeComboBox.DroppedDown = true;
+        }
+
+        private void idComboBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            idComboBox.DroppedDown = true;
+        }
+
+        private void tenativeComboBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            tenativeComboBox.DroppedDown = true;
+        }
+
+        private void lengthComboBox_MouseClick(object sender, MouseEventArgs e)
+        {
+            lengthComboBox.DroppedDown = true;
+        }
     }
 }
