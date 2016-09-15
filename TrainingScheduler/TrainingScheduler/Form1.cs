@@ -87,15 +87,15 @@ namespace TrainingScheduler
             tenativeComboBox.Text = "No";
 
             // lengthcombo options
-            lengthComboBox.Items.Add("1hr");
-            lengthComboBox.Items.Add("2hr");
-            lengthComboBox.Items.Add("3hr");
-            lengthComboBox.Items.Add("4hr");
-            lengthComboBox.Items.Add("5hr");
-            lengthComboBox.Items.Add("6hr");
-            lengthComboBox.Items.Add("7hr");
-            lengthComboBox.Items.Add("8hr");
-            lengthComboBox.Text = "4hr";
+            lengthComboBox.Items.Add("1hrs");
+            lengthComboBox.Items.Add("2hrs");
+            lengthComboBox.Items.Add("3hrs");
+            lengthComboBox.Items.Add("4hrs");
+            lengthComboBox.Items.Add("5hrs");
+            lengthComboBox.Items.Add("6hrs");
+            lengthComboBox.Items.Add("7hrs");
+            lengthComboBox.Items.Add("8hrs");
+            lengthComboBox.Text = "4hrs";
 
             // lengthcombo options
             idComboBox.Items.Add("1");
@@ -165,7 +165,7 @@ namespace TrainingScheduler
             sObj.time = timeComboBox.Text;
             sObj.id = idComboBox.Text;
             sObj.tentative = tenativeComboBox.Text;
-            sObj.setHours("3");
+            sObj.setHours("3hrs");
             sObj.type = "test";
             idComboBox.Items.Add((Int32.Parse(idComboBox.Text) + 1).ToString());
             idComboBox.Text = (Int32.Parse(idComboBox.Text) + 1).ToString();
@@ -337,9 +337,10 @@ namespace TrainingScheduler
             string filename;
             string output = "";
             Driver customer = customerSchedule[0].customer;
-            filename = customer.first_name + customer.last_name + customer.cdl + ".txt";
+            filename = "Humphrey's" + ".txt";
 
             //define output string
+            output += "\r\n\r\n";
             output += "Customer: " + customer.first_name + " " + customer.last_name + "\r\n";
             output += "CDL Lot: 110 S. Delaney Rd. Owosso MI, 48867\r\n";
             output += "Vehical: " + customer.vehical + ", w/" + customer.trans + " " + customer.brakes + "\r\n";
@@ -384,7 +385,6 @@ namespace TrainingScheduler
                         output += "(Tenative)\r\n";
                     }
                     output += "\r\n";
-                    totalHours += customerSchedule[i].hoursTrained;
                 }
             }
 
@@ -397,10 +397,22 @@ namespace TrainingScheduler
             output += "\r\n";
             output += "Training (" + totalHours + "hrs * $" + customer.trainingRate + "/hr) = $" + totalHours * customer.trainingRate + "\r\n";
             output += "Test = $" + customer.testingRate + "\r\n\r\n";
-            output += "Grand Total = $" + (totalHours * customer.trainingRate) + customer.testingRate;
+            output += "Grand Total = $" + ((totalHours * customer.trainingRate) + customer.testingRate);
 
             System.IO.File.WriteAllText(filename, output);
             System.Diagnostics.Process.Start(filename);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //clear customerSchedule
+            customerSchedule = new List<Schedule>();
+
+
+
+            //print training in box and testing
+            printTrainingToBox(customerSchedule);
+            printTestingToBox(customerSchedule);
         }
     }
 }

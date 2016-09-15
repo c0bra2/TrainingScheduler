@@ -1,16 +1,20 @@
-Customer: R S
+
+
+Customer: Adam Siler
 CDL Lot: 110 S. Delaney Rd. Owosso MI, 48867
-Vehical: Semi Rental, w/Manual Full Air
+Vehical: Truck Rental, w/Manual Full Air
 Class: CDL-A
 Training Rate $150/hr
-Testing Rate $450
+Testing Rate $400
 
 
 Training Schedule
 Date               Time          Length           Trainer   
 -----------------------------------------------------------------
-9/15/2016          9:00AM        4hrs             Chris Humphrey      
-9/15/2016          9:00AM        4hrs             Chris Humphrey      
+9/14/2016          1:00PM        3hrs             Patrick Humphrey    
+9/15/2016          1:00PM        3hrs             Patrick Humphrey    
+9/16/2016          9:00AM        3hrs             Patrick Humphrey    
+9/17/2016          1:00PM        3hrs             Patrick Humphrey    
 
 
 
@@ -19,7 +23,7 @@ Date               Time          Length           Trainer
 Testing Schedule
 Date               Time          Length           Trainer   
 -----------------------------------------------------------------
-9/15/2016          9:00AM        3hrs             Patrick Humphrey    
+9/19/2016          1:00PM        3hrs             Chris Humphrey      
 
 
 
@@ -28,7 +32,7 @@ Date               Time          Length           Trainer
 
 Summary (Totals subject to change if deviating from this outline)
 -----------------------------------------------------------------
-Training (8hrs * $150/hr) = $1200
-Test = $450
+Training (12hrs * $150/hr) = $1800
+Test = $400
 
-Grand Total = $1200450
+Grand Total = $2200
