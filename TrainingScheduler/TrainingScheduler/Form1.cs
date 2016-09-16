@@ -55,7 +55,7 @@ namespace TrainingScheduler
             cdlComboBox.Text = "A";
 
             // brakecombo options
-            brakeComboBox.Items.Add("Full Hydrolic");
+            brakeComboBox.Items.Add("Hydraulic");
             brakeComboBox.Items.Add("Partial Air");
             brakeComboBox.Items.Add("Full Air");
             brakeComboBox.Text = "Full Air";
@@ -189,9 +189,16 @@ namespace TrainingScheduler
             //remove the item of specified ID
             int removeIndex = 0;
             int largest = 0;
+            bool removable;
+            List<string> ids = new List<string>();
+
             for (int i = 0; i < customerSchedule.Count; i++){
                 if (customerSchedule[i].id == idComboBox.Text){
                     removeIndex = i;
+                }
+                else
+                {
+                    ids.Add(customerSchedule[i].id);
                 }
             }
             customerSchedule.RemoveAt(removeIndex);
@@ -206,6 +213,29 @@ namespace TrainingScheduler
             }
             idComboBox.Items.RemoveAt(removeIndex);
 
+            //go through and find unused IDs, remove them too
+            for (int i = 0; i < ids.Count; i++)
+            {
+                removable = true;
+                for (int j = 0; j < idComboBox.Items.Count; j++)
+                {
+                    if (ids[i] == idComboBox.GetItemText(idComboBox.Items[j]))
+                    {
+                        removable = false;
+                    }
+                }
+                if (removable)
+                {
+                    for (int k = 0; k < idComboBox.Items.Count; k++)
+                    {
+                        if ((idComboBox.GetItemText(idComboBox.Items[k]) == ids[i]) && ids[i] != largest.ToString())
+                        {
+                            idComboBox.Items.RemoveAt(k);
+                        }
+                    }
+                }
+            }
+
             for (int i = 0; i < idComboBox.Items.Count; i++)
             {
                 if (Int32.Parse(idComboBox.GetItemText(idComboBox.Items[i])) > largest)
@@ -215,7 +245,6 @@ namespace TrainingScheduler
             }
 
             //new ID to set in idcombobox
-            idComboBox.Items.Add(largest.ToString());
             idComboBox.Text = largest.ToString();
 
             //print training in box and testing
@@ -325,6 +354,20 @@ namespace TrainingScheduler
             }
             return s;
         }
+        public string padStringh(string s, int p)
+        {
+            int count = 0;
+            for (int i = 0; i < s.Length; i++)
+            {
+                count++;
+            }
+            p -= count;
+            for (; p > 0; p--)
+            {
+                s += "&nbsp";
+            }
+            return s;
+        }
 
         /// <summary>
         /// Print Button Clicked
@@ -343,7 +386,7 @@ namespace TrainingScheduler
             output += "\r\n\r\n";
             output += "Customer: " + customer.first_name + " " + customer.last_name + "\r\n";
             output += "CDL Lot: 110 S. Delaney Rd. Owosso MI, 48867\r\n";
-            output += "Vehical: " + customer.vehical + ", w/" + customer.trans + " " + customer.brakes + "\r\n";
+            output += "Vehical: " + customer.vehical + ", " + customer.trans + " Trans, " + customer.brakes + " Brakes \r\n";
             output += "Class: " + "CDL-" + customer.cdl + "\r\n";
             output += "Training Rate $" + customer.trainingRate + "/hr\r\n";
             output += "Testing Rate $" + customer.testingRate + "\r\n";
@@ -401,6 +444,80 @@ namespace TrainingScheduler
 
             System.IO.File.WriteAllText(filename, output);
             System.Diagnostics.Process.Start(filename);
+        }
+
+        /// <summary>
+        /// HTML OUTPUT BUTTON
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void button7_Click(object sender, EventArgs e)
+        {
+            int totalHours = 0;
+            string filename;
+            string output = "";
+            Driver customer = customerSchedule[0].customer;
+            filename = "Humphrey's" + ".html";
+
+            output += @"<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+    background-color: white;
+}
+
+h1 {
+    color: black;
+    text-align: center;
+    font-family: Helvetica;
+}
+
+p {
+    font-family: Helvetica;
+    font-size: 15px;
+}
+</style>
+</head>
+<body>
+
+<h1>Humphrey Driver Training and Testing</h1><br/></br>";
+            output += "<p>" + "Customer: " + customer.first_name + " " + customer.last_name + "</br>";
+            output += "CDL Lot: 110 S. Delaney Rd. Owosso MI, 48867</br>";
+            output += "Vehical: " + customer.vehical + ", " + customer.trans + " Trans, " + customer.brakes + " Brakes <br/>";
+            output += "Class: " + "CDL-" + customer.cdl + "</br>";
+            output += "Training Rate $" + customer.trainingRate + "/hr</br>";
+            output += "Testing Rate $" + customer.testingRate + "</br>";
+            output += "</br></br>";
+            output += "<b>Training Schedule</b></br>" + padStringh("Date", 22) + padStringh("Time", 18) + padStringh("Length", 14) + padStringh("Trainer", 10) + "</br>";
+            for (int i = 0; i < 80; i++)
+            {
+                output += "-";
+            }
+            output += "</br>";
+            for (int i = 0; i < customerSchedule.Count; i++)
+            {
+                if (customerSchedule[i].type == "train")
+                {
+                    output += padStringh(customerSchedule[i].date, 19) + padStringh(customerSchedule[i].time, 14) + padStringh(customerSchedule[i].hours, 17) + padStringh(customerSchedule[i].customer.trainer, 20);
+                    if (customerSchedule[i].tentative == "Yes")
+                    {
+                        output += "(Tenative)</br>";
+                    }
+                    output += "</br>";
+                    totalHours += customerSchedule[i].hoursTrained;
+                }
+            }
+
+            output += "</br></br></br></br></br>";
+            output += @"</p>
+
+</body>
+</html>";
+            
+            System.IO.File.WriteAllText(filename, output);
+            System.Diagnostics.Process.Start(filename);
+
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -463,6 +580,12 @@ namespace TrainingScheduler
         private void lengthComboBox_MouseClick(object sender, MouseEventArgs e)
         {
             lengthComboBox.DroppedDown = true;
+        }
+
+        private void dateTimePicker1_MouseDown(object sender, MouseEventArgs e)
+        {
+            dateTimePicker1.Select();
+            SendKeys.Send("%{DOWN}");
         }
     }
 }

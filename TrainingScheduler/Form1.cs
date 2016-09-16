@@ -167,5 +167,11 @@ namespace TrainingScheduler
         {
 
         }
+
+        private void dateTimePicker1_MouseDown(object sender, MouseEventArgs e)
+        {
+            dateTimePicker1.Select();
+            SendKeys.Send("%{DOWN}");
+        }
     }
 }
