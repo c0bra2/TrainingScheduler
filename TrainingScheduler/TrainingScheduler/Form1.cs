@@ -43,6 +43,8 @@ namespace TrainingScheduler
             // vehicalcombo options
             vehicalComboBox.Items.Add("Semi Rental");
             vehicalComboBox.Items.Add("Truck Rental");
+            vehicalComboBox.Items.Add("Customer Truck: Fifth Wheel");
+            vehicalComboBox.Items.Add("Customer Truck: Pintle Hitch");
             vehicalComboBox.Items.Add("Customer Truck");
             vehicalComboBox.Text = "Semi Rental";
 
@@ -186,70 +188,76 @@ namespace TrainingScheduler
         //RUNS WHEN REMOVE ID BUTTON CLICKED
         private void button1_Click(object sender, EventArgs e)
         {
-            //remove the item of specified ID
-            int removeIndex = 0;
-            int largest = 0;
-            bool removable;
-            List<string> ids = new List<string>();
-
-            for (int i = 0; i < customerSchedule.Count; i++){
-                if (customerSchedule[i].id == idComboBox.Text){
-                    removeIndex = i;
-                }
-                else
-                {
-                    ids.Add(customerSchedule[i].id);
-                }
-            }
-            customerSchedule.RemoveAt(removeIndex);
-
-            //remove id number from combobox
-            for (int i = 0; i < idComboBox.Items.Count; i++)
+            //make sure there are items to remove first
+            if (idComboBox.Items.Count != 1)
             {
-                if (idComboBox.GetItemText(idComboBox.Items[i]) == idComboBox.Text)
-                {
-                    removeIndex = i;
-                }
-            }
-            idComboBox.Items.RemoveAt(removeIndex);
+                //remove the item of specified ID
+                int removeIndex = 0;
+                int largest = 0;
+                bool removable;
+                List<string> ids = new List<string>();
 
-            //go through and find unused IDs, remove them too
-            for (int i = 0; i < ids.Count; i++)
-            {
-                removable = true;
-                for (int j = 0; j < idComboBox.Items.Count; j++)
+                for (int i = 0; i < customerSchedule.Count; i++)
                 {
-                    if (ids[i] == idComboBox.GetItemText(idComboBox.Items[j]))
+                    if (customerSchedule[i].id == idComboBox.Text)
                     {
-                        removable = false;
+                        removeIndex = i;
+                    }
+                    else
+                    {
+                        ids.Add(customerSchedule[i].id);
                     }
                 }
-                if (removable)
+                customerSchedule.RemoveAt(removeIndex);
+
+                //remove id number from combobox
+                for (int i = 0; i < idComboBox.Items.Count; i++)
                 {
-                    for (int k = 0; k < idComboBox.Items.Count; k++)
+                    if (idComboBox.GetItemText(idComboBox.Items[i]) == idComboBox.Text)
                     {
-                        if ((idComboBox.GetItemText(idComboBox.Items[k]) == ids[i]) && ids[i] != largest.ToString())
+                        removeIndex = i;
+                    }
+                }
+                idComboBox.Items.RemoveAt(removeIndex);
+
+                //go through and find unused IDs, remove them too
+                for (int i = 0; i < ids.Count; i++)
+                {
+                    removable = true;
+                    for (int j = 0; j < idComboBox.Items.Count; j++)
+                    {
+                        if (ids[i] == idComboBox.GetItemText(idComboBox.Items[j]))
                         {
-                            idComboBox.Items.RemoveAt(k);
+                            removable = false;
+                        }
+                    }
+                    if (removable)
+                    {
+                        for (int k = 0; k < idComboBox.Items.Count; k++)
+                        {
+                            if ((idComboBox.GetItemText(idComboBox.Items[k]) == ids[i]) && ids[i] != largest.ToString())
+                            {
+                                idComboBox.Items.RemoveAt(k);
+                            }
                         }
                     }
                 }
-            }
 
-            for (int i = 0; i < idComboBox.Items.Count; i++)
-            {
-                if (Int32.Parse(idComboBox.GetItemText(idComboBox.Items[i])) > largest)
+                for (int i = 0; i < idComboBox.Items.Count; i++)
                 {
-                    largest = Int32.Parse(idComboBox.GetItemText(idComboBox.Items[i]));
+                    if (Int32.Parse(idComboBox.GetItemText(idComboBox.Items[i])) > largest)
+                    {
+                        largest = Int32.Parse(idComboBox.GetItemText(idComboBox.Items[i]));
+                    }
                 }
+
+                //new ID to set in idcombobox
+                idComboBox.Text = largest.ToString();
+
+                //print training in box and testing
+                printTrainingToBox(customerSchedule);
+                printTestingToBox(customerSchedule);
             }
-
-            //new ID to set in idcombobox
-            idComboBox.Text = largest.ToString();
-
-            //print training in box and testing
-            printTrainingToBox(customerSchedule);
-            printTestingToBox(customerSchedule);
         }
 
         private void printTestingToBox(List<Schedule> s){
@@ -387,6 +395,7 @@ namespace TrainingScheduler
             output += "Customer: " + customer.first_name + " " + customer.last_name + "\r\n";
             output += "CDL Lot: 110 S. Delaney Rd. Owosso MI, 48867\r\n";
             output += "Vehical: " + customer.vehical + ", " + customer.trans + " Trans, " + customer.brakes + " Brakes \r\n";
+            output += customer.restrictions(false);
             output += "Class: " + "CDL-" + customer.cdl + "\r\n";
             output += "Training Rate $" + customer.trainingRate + "/hr\r\n";
             output += "Testing Rate $" + customer.testingRate + "\r\n";
@@ -485,6 +494,7 @@ p {
             output += "<p>" + "Customer: " + customer.first_name + " " + customer.last_name + "</br>";
             output += "CDL Lot: 110 S. Delaney Rd. Owosso MI, 48867</br>";
             output += "Vehical: " + customer.vehical + ", " + customer.trans + " Trans, " + customer.brakes + " Brakes <br/>";
+            output += customer.restrictions(true);
             output += "Class: " + "CDL-" + customer.cdl + "</br>";
             output += "Training Rate $" + customer.trainingRate + "/hr</br>";
             output += "Testing Rate $" + customer.testingRate + "</br>";

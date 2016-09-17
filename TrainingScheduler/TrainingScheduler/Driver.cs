@@ -19,6 +19,50 @@ namespace TrainingScheduler
         public int trainingRate;
         public int testingRate;
 
+        public string restrictions(bool html)
+        {
+            List<string> res = new List<string>();
+            string outstring = "";
+            if (trans == "Automatic")
+            {
+                res.Add("No Manual");
+            }
+            if (brakes == "Hydraulic" || brakes == "Partial Air")
+            {
+                res.Add("No Full Air Brakes");
+            }
+            if (vehical == "Customer Truck: Pintle Hitch")
+            {
+                res.Add("No Fifth Wheel");
+            }
+
+            if (res.Count == 0)
+            {
+                return "";
+            }
+            outstring += "Restrictions: ";
+            for (int i = 0; i < res.Count; i++)
+            {
+                if (i + 1 != res.Count)
+                {
+                    //not last value in list
+                    outstring += res[i] + ", ";
+                }
+                else
+                {
+                    outstring += res[i];
+                }
+            }
+            if (html)
+            {
+                return outstring + "<br/>";
+            }
+            else
+            {
+                return outstring + "\r\n";
+            }
+        }
+
         public void setRate(string v)
         {
             if (v == "Semi Rental")
