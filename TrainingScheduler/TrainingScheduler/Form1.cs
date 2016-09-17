@@ -478,20 +478,57 @@ body {
 
 h1 {
     color: black;
-    text-align: center;
+    text-align: left;
     font-family: Helvetica;
+    font-size: 27px
 }
 
+.dba {
+    color: black;
+    font-family: Helvetica;
+    font-size: 15px;}
+.hed{
+color: black;
+text-align: left;
+font-family: Helvetica;
+font-size: 11px;
+}
+.hed2{
+color: left;
+text-align: center;
+font-family: bold Helvetica;
+font-size: 13px;
+}
+.hed3{
+color: black;
+text-align: left;
+font-family: bold Helvetica;
+font-size: 15px;
+}
 p {
     font-family: Helvetica;
     font-size: 15px;
+}
+hr { 
+    display: block;
+    margin-top: 0.1em;
+    margin-bottom: 0em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
 }
 </style>
 </head>
 <body>
 
-<h1>Humphrey Driver Training and Testing</h1><br/></br>";
-            output += "<p>" + "Customer: " + customer.first_name + " " + customer.last_name + "</br>";
+<h1>Humphrey Driver Training and Testing <span class=" + "\"dba" + "\">" + "(DBA)</span></br><span class=" + "\"hed2" + "\">" + "Humphrey Enterprises, Inc.&nbsp&nbsp&nbsp&nbsp</span>" + 
+"<span class=" + "\"hed2" + "\">" + "Office:&nbsp&nbsp</span><span class=" + "\"hed" + "\">" + "2089 Corunna Ave. Owosso MI, 48867&nbsp&nbsp&nbsp&nbsp&nbsp</span><span class=" + "\"hed2" + "\">" +
+"Phone:</span><span class=" + "\"hed" + "\">" + "&nbsp&nbsp989-723-7176</span></br><hr><span class=" + "\"hed3" + "\">" + "Department of State Certification #P000422&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + 
+"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + 
+"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + 
+"&nbsp&nbsp</span></h1><br/></br>";
+            output += " <p>" + "Customer: " + customer.first_name + " " + customer.last_name + "</br>";
             output += "CDL Lot: 110 S. Delaney Rd. Owosso MI, 48867</br>";
             output += "Vehical: " + customer.vehical + ", " + customer.trans + " Trans, " + customer.brakes + " Brakes <br/>";
             output += customer.restrictions(true);
@@ -500,7 +537,7 @@ p {
             output += "Testing Rate $" + customer.testingRate + "</br>";
             output += "</br></br>";
             output += "<b>Training Schedule</b></br>" + padStringh("Date", 22) + padStringh("Time", 18) + padStringh("Length", 14) + padStringh("Trainer", 10) + "</br>";
-            for (int i = 0; i < 80; i++)
+            for (int i = 0; i < 77; i++)
             {
                 output += "-";
             }
@@ -519,7 +556,35 @@ p {
                 }
             }
 
+            output += "</br></br>";
+            output += "<b>Testing Schedule</b></br>" + padStringh("Date", 22) + padStringh("Time", 18) + padStringh("Length", 14) + padStringh("Tester", 10) + "</br>";
+            for (int i = 0; i < 77; i++)
+            {
+                output += "-";
+            }
+            output += "</br>";
+            for (int i = 0; i < customerSchedule.Count; i++)
+            {
+                if (customerSchedule[i].type == "test")
+                {
+                    output += padStringh(customerSchedule[i].date, 19) + padStringh(customerSchedule[i].time, 14) + padStringh(customerSchedule[i].hours, 17) + padStringh(customerSchedule[i].customer.tester, 20);
+                    if (customerSchedule[i].tentative == "Yes")
+                    {
+                        output += "(Tenative)</br>";
+                    }
+                    output += "</br>";
+                }
+            }
             output += "</br></br></br></br></br>";
+            output += "<b>Summary</b> (Totals subject to change if deviating from this outline)<br/>";
+            for (int i = 0; i < 67; i++)
+            {
+                output += "-";
+            }
+            output += "<br/>";
+            output += "Training (" + totalHours + "hrs * $" + customer.trainingRate + "/hr) = $" + totalHours * customer.trainingRate + "<br/>";
+            output += "Test = $" + customer.testingRate + "<br/><br/>";
+            output += "Grand Total = $" + ((totalHours * customer.trainingRate) + customer.testingRate);
             output += @"</p>
 
 </body>
