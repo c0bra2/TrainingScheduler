@@ -21,7 +21,7 @@ namespace TrainingScheduler
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
+
             /*// make it readonly
             //trainerComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             testerComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -260,7 +260,8 @@ namespace TrainingScheduler
             }
         }
 
-        private void printTestingToBox(List<Schedule> s){
+        private void printTestingToBox(List<Schedule> s)
+        {
             bool testDate = false;
             for (int i = 0; i < s.Count; i++)
             {
@@ -273,41 +274,42 @@ namespace TrainingScheduler
             {
                 return;
             }
-            else{
-            int total = 0;
-            //print testing header
-            richTextBox1.AppendText("\n\n\nTesting\n" + padString("ID", 5)  + padString("Date",20) + padString("Time",15) + "\n");
-            //print data for each testing session
-            for (int i = 0; i < s.Count; i++)
+            else
             {
-                if (s[i].type == "test")
+                int total = 0;
+                //print testing header
+                richTextBox1.AppendText("\n\n\nTesting\n" + padString("ID", 5) + padString("Date", 20) + padString("Time", 15) + "\n");
+                //print data for each testing session
+                for (int i = 0; i < s.Count; i++)
                 {
-                    richTextBox1.AppendText(padString(s[i].id, 6) +
-                        padString(s[i].date, 15) + padString(s[i].time, 12));
-                    if (s[i].customer.tester == "Chris Humphrey")
+                    if (s[i].type == "test")
                     {
-                        richTextBox1.AppendText("w/Chris ");
+                        richTextBox1.AppendText(padString(s[i].id, 6) +
+                            padString(s[i].date, 15) + padString(s[i].time, 12));
+                        if (s[i].customer.tester == "Chris Humphrey")
+                        {
+                            richTextBox1.AppendText("w/Chris ");
+                        }
+                        else if (s[i].customer.tester == "Patrick Humphrey")
+                        {
+                            richTextBox1.AppendText("w/Pat ");
+                        }
+                        else if (s[i].customer.tester == "Ed Humphrey")
+                        {
+                            richTextBox1.AppendText("w/Ed ");
+                        }
+                        if (s[i].tentative == "Yes")
+                        {
+                            richTextBox1.AppendText(padString("(T)\n", 0));
+                        }
+                        else
+                        {
+                            richTextBox1.AppendText("\n");
+                        }
+                        total += s[i].hoursTrained * s[i].customer.trainingRate;
                     }
-                    else if (s[i].customer.tester == "Patrick Humphrey")
-                    {
-                        richTextBox1.AppendText("w/Pat ");
-                    }
-                    else if (s[i].customer.tester == "Ed Humphrey")
-                    {
-                        richTextBox1.AppendText("w/Ed ");
-                    }
-                    if (s[i].tentative == "Yes")
-                    {
-                        richTextBox1.AppendText(padString("(T)\n", 0));
-                    }
-                    else
-                    {
-                        richTextBox1.AppendText("\n");
-                    }
-                    total += s[i].hoursTrained * s[i].customer.trainingRate;
                 }
-            }
-            richTextBox1.AppendText("Testing Cost: $" + total);
+                richTextBox1.AppendText("Testing Cost: $" + total);
             }
         }
 
@@ -316,8 +318,8 @@ namespace TrainingScheduler
             int total = 0;
             richTextBox1.Clear();
             //print training header
-            richTextBox1.AppendText("Training\n" + padString("ID", 5) + 
-                padString("Length", 11) + padString("Date",20) + padString("Time",15) + "\n");
+            richTextBox1.AppendText("Training\n" + padString("ID", 5) +
+                padString("Length", 11) + padString("Date", 20) + padString("Time", 15) + "\n");
             //print data for each training session
             for (int i = 0; i < s.Count; i++)
             {
@@ -351,13 +353,16 @@ namespace TrainingScheduler
             richTextBox1.AppendText("Training Cost: $" + total);
         }
 
-        public string padString(string s, int p){
+        public string padString(string s, int p)
+        {
             int count = 0;
-            for (int i = 0; i < s.Length; i++){
+            for (int i = 0; i < s.Length; i++)
+            {
                 count++;
             }
             p -= count;
-            for (;p > 0; p--){
+            for (; p > 0; p--)
+            {
                 s += " ";
             }
             return s;
@@ -400,7 +405,7 @@ namespace TrainingScheduler
             output += "Training Rate $" + customer.trainingRate + "/hr\r\n";
             output += "Testing Rate $" + customer.testingRate + "\r\n";
             output += "\r\n\r\n";
-            output += "Training Schedule\r\n" + padString("Date", 19) + padString("Time", 14) + padString("Length", 17) + padString("Trainer",10) + "\r\n";
+            output += "Training Schedule\r\n" + padString("Date", 19) + padString("Time", 14) + padString("Length", 17) + padString("Trainer", 10) + "\r\n";
             for (int i = 0; i < 65; i++)
             {
                 output += "-";
@@ -477,7 +482,7 @@ h1 {
     color: black;
     text-align: left;
     font-family: Helvetica;
-    font-size: 27px
+    font-size: 30px
 }
 .dba {
     color: black;
@@ -510,7 +515,7 @@ text-transform: none;
 }
 p {
     font-family: Helvetica;
-    font-size: 15px;
+    font-size: 18px;
 }
 hr { 
     display: block;
@@ -523,7 +528,7 @@ hr {
 }
         body {
             font-family: Helvetica, sans;
-            font-size: 14px;
+            font-size: 18px;
             color: #333333;
             font-weight: normal;
             line-height: 1.2;
@@ -570,7 +575,8 @@ hr {
             padding-top: 5px;
             padding-bottom: 5px;
             width: 10%;
-        }
+        }
+
         .schedule {
             padding-top: 10px;
            
@@ -596,7 +602,7 @@ hr {
             padding-top: 5px;
             padding-bottom: 5px;
             font-weight: normal;
-            min-width: 120px;            
+            min-width: 150px;            
         }
         
         .summary {
@@ -621,7 +627,8 @@ hr {
             padding-bottom: 5px;
             width: 10%;
         }
-        </style>
+        </style>
+
 </head>
 <body>
 <h1>Humphrey Driver Training and Testing <span class=" + "\"dba" + "\">" + "(DBA)</span></br><span class=" + "\"hed2" + "\">" + "Humphrey Enterprises, Inc.&nbsp&nbsp&nbsp&nbsp</span>" +
@@ -629,7 +636,7 @@ hr {
  "Phone:</span><span class=" + "\"hed" + "\">" + "&nbsp&nbsp989-723-7176</span></br><hr><span class=" + "\"hed3" + "\">" + "Department of State Certification #P000422&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" +
  "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" +
  "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" +
- "&nbsp&nbsp</span></h1><br/></br>";
+ "&nbsp&nbsp</span></h1></br>";
             output += " <p>" + "Customer: " + customer.first_name + " " + customer.last_name + "</br>";
             output += "CDL Lot: 110 S. Delaney Rd. Owosso MI, 48867</br>";
             output += "Vehical: " + customer.vehical + ", " + customer.trans + " Trans, " + customer.brakes + " Brakes <br/>";
@@ -637,7 +644,7 @@ hr {
             output += "Class: " + "CDL-" + customer.cdl + "</br>";
             output += "Training Rate $" + customer.trainingRate + "/hr</br>";
             output += "Testing Rate $" + customer.testingRate + "</br>";
-            output += "</p><div class=\"schedule\">" + 
+            output += "</p><div class=\"schedule\">" +
             @"<h3>Training Schedule</h3>
             <table>
                 <tr>
@@ -645,14 +652,15 @@ hr {
                     <th>Time</th>
                     <th>Length</th>
                     <th>Trainer</th>
-                </tr>";
+                </tr>";
+
 
             for (int i = 0; i < customerSchedule.Count; i++)
             {
                 if (customerSchedule[i].type == "train")
                 {
                     output += "<tr>";
-                    output += "<td>" + customerSchedule[i].date + "</td>" + "<td>"+ customerSchedule[i].time + "</td>" + "<td>" + customerSchedule[i].hours + "</td>" + "<td>" + customerSchedule[i].customer.trainer + "</td>";
+                    output += "<td>" + customerSchedule[i].date + "</td>" + "<td>" + customerSchedule[i].time + "</td>" + "<td>" + customerSchedule[i].hours + "</td>" + "<td>" + customerSchedule[i].customer.trainer + "</td>";
                     output += "</tr>";
                     totalHours += customerSchedule[i].hoursTrained;
                 }
@@ -667,7 +675,7 @@ hr {
                     <th>Length</th>
                     <th>Tester</th>
                 </tr>";
-        
+
             for (int i = 0; i < customerSchedule.Count; i++)
             {
                 if (customerSchedule[i].type == "test")
@@ -688,9 +696,10 @@ hr {
 
 </body>
 </html>";
-            
+
             System.IO.File.WriteAllText(filename, output);
-            SelectPdf.HtmlToPdf converter = new SelectPdf.HtmlToPdf();
+            System.Diagnostics.Process.Start(filename);
+            /*SelectPdf.HtmlToPdf converter = new SelectPdf.HtmlToPdf();
             SelectPdf.PdfDocument doc = converter.ConvertHtmlString(output);
             try
             {
@@ -702,8 +711,9 @@ hr {
             }
             doc.Close();
 
-            System.Diagnostics.Process.Start(filename);
+            
             System.Diagnostics.Process.Start("Humphrey's.pdf");
+        */
             button7.Enabled = true;
         }
 

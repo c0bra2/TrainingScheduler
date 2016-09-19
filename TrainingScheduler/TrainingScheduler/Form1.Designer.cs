@@ -138,7 +138,7 @@
             this.testerComboBox.Location = new System.Drawing.Point(370, 43);
             this.testerComboBox.Name = "testerComboBox";
             this.testerComboBox.Size = new System.Drawing.Size(121, 21);
-            this.testerComboBox.TabIndex = 5;
+            this.testerComboBox.TabIndex = 6;
             this.testerComboBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.testerComboBox_MouseClick);
             // 
             // label6
@@ -157,7 +157,7 @@
             this.vehicalComboBox.Location = new System.Drawing.Point(370, 70);
             this.vehicalComboBox.Name = "vehicalComboBox";
             this.vehicalComboBox.Size = new System.Drawing.Size(121, 21);
-            this.vehicalComboBox.TabIndex = 6;
+            this.vehicalComboBox.TabIndex = 7;
             this.vehicalComboBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.vehicalComboBox_MouseClick);
             // 
             // label7
@@ -202,7 +202,7 @@
             this.brakeComboBox.Location = new System.Drawing.Point(370, 97);
             this.brakeComboBox.Name = "brakeComboBox";
             this.brakeComboBox.Size = new System.Drawing.Size(121, 21);
-            this.brakeComboBox.TabIndex = 7;
+            this.brakeComboBox.TabIndex = 8;
             this.brakeComboBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.brakeComboBox_MouseClick);
             // 
             // transComboBox
@@ -278,8 +278,6 @@
             this.panel2.Controls.Add(this.label15);
             this.panel2.Controls.Add(this.lengthComboBox);
             this.panel2.Controls.Add(this.label14);
-            this.panel2.Controls.Add(this.tenativeComboBox);
-            this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.timeComboBox);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.dateTimePicker1);
@@ -338,7 +336,7 @@
             this.idComboBox.Location = new System.Drawing.Point(64, 100);
             this.idComboBox.Name = "idComboBox";
             this.idComboBox.Size = new System.Drawing.Size(121, 21);
-            this.idComboBox.TabIndex = 10;
+            this.idComboBox.TabIndex = 11;
             this.idComboBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.idComboBox_MouseClick);
             // 
             // label15
@@ -373,21 +371,23 @@
             // tenativeComboBox
             // 
             this.tenativeComboBox.FormattingEnabled = true;
-            this.tenativeComboBox.Location = new System.Drawing.Point(375, 21);
+            this.tenativeComboBox.Location = new System.Drawing.Point(586, 11);
             this.tenativeComboBox.Name = "tenativeComboBox";
             this.tenativeComboBox.Size = new System.Drawing.Size(121, 21);
             this.tenativeComboBox.TabIndex = 11;
+            this.tenativeComboBox.Visible = false;
             this.tenativeComboBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tenativeComboBox_MouseClick);
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(291, 23);
+            this.label13.Location = new System.Drawing.Point(503, 9);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(77, 20);
             this.label13.TabIndex = 10;
             this.label13.Text = "Tenative";
+            this.label13.Visible = false;
             // 
             // timeComboBox
             // 
@@ -395,7 +395,7 @@
             this.timeComboBox.Location = new System.Drawing.Point(64, 62);
             this.timeComboBox.Name = "timeComboBox";
             this.timeComboBox.Size = new System.Drawing.Size(121, 21);
-            this.timeComboBox.TabIndex = 9;
+            this.timeComboBox.TabIndex = 10;
             this.timeComboBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.timeComboBox_MouseClick);
             // 
             // label9
@@ -414,7 +414,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(65, 22);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 8;
+            this.dateTimePicker1.TabIndex = 9;
             this.dateTimePicker1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dateTimePicker1_MouseDown);
             // 
             // label8
@@ -492,6 +492,8 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.tenativeComboBox);
+            this.Controls.Add(this.label13);
             this.Name = "Form1";
             this.Text = "Training Scheduling Program";
             this.Load += new System.EventHandler(this.Form1_Load);

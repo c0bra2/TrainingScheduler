@@ -35,7 +35,10 @@ namespace TrainingScheduler
             {
                 res.Add("No Fifth Wheel");
             }
-
+            if (vehical == "Truck Rental")
+            {
+                res.Add("No Fifth Wheel");
+            }
             if (res.Count == 0)
             {
                 return "";

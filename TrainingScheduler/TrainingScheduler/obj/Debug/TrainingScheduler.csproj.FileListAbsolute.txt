@@ -54,3 +54,5 @@ C:\Users\Jakeob makeup\Documents\TrainingScheduler-master\TrainingScheduler\Trai
 C:\Users\Jakeob makeup\Documents\TrainingScheduler-master\TrainingScheduler\TrainingScheduler\bin\Debug\TrainingScheduler.pdb
 C:\Users\Jakeob makeup\Documents\TrainingScheduler-master\TrainingScheduler\TrainingScheduler\bin\Debug\Select.HtmlToPdf.dll
 C:\Users\Jakeob makeup\Documents\TrainingScheduler-master\TrainingScheduler\TrainingScheduler\bin\Debug\Select.HtmlToPdf.xml
+C:\Users\foggy\Documents\Visual Studio 2015\Projects\TrainingScheduler\TrainingScheduler\bin\Debug\Select.HtmlToPdf.dll
+C:\Users\foggy\Documents\Visual Studio 2015\Projects\TrainingScheduler\TrainingScheduler\bin\Debug\Select.HtmlToPdf.xml
