@@ -1,0 +1,9 @@
+c:\users\foggy\documents\visual studio 2015\Projects\TrainingScheduler\TrainingScheduler\bin\Debug\TrainingScheduler.exe.config
+c:\users\foggy\documents\visual studio 2015\Projects\TrainingScheduler\TrainingScheduler\bin\Debug\TrainingScheduler.exe
+c:\users\foggy\documents\visual studio 2015\Projects\TrainingScheduler\TrainingScheduler\bin\Debug\TrainingScheduler.pdb
+c:\users\foggy\documents\visual studio 2015\Projects\TrainingScheduler\TrainingScheduler\obj\Debug\TrainingScheduler.csprojResolveAssemblyReference.cache
+c:\users\foggy\documents\visual studio 2015\Projects\TrainingScheduler\TrainingScheduler\obj\Debug\TrainingScheduler.Form1.resources
+c:\users\foggy\documents\visual studio 2015\Projects\TrainingScheduler\TrainingScheduler\obj\Debug\TrainingScheduler.Properties.Resources.resources
+c:\users\foggy\documents\visual studio 2015\Projects\TrainingScheduler\TrainingScheduler\obj\Debug\TrainingScheduler.csproj.GenerateResource.Cache
+c:\users\foggy\documents\visual studio 2015\Projects\TrainingScheduler\TrainingScheduler\obj\Debug\TrainingScheduler.exe
+c:\users\foggy\documents\visual studio 2015\Projects\TrainingScheduler\TrainingScheduler\obj\Debug\TrainingScheduler.pdb
