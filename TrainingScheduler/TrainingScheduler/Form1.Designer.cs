@@ -56,12 +56,12 @@
             this.label15 = new System.Windows.Forms.Label();
             this.lengthComboBox = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.tenativeComboBox = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.timeComboBox = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
+            this.tenativeComboBox = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.button3 = new System.Windows.Forms.Button();
@@ -352,7 +352,7 @@
             // lengthComboBox
             // 
             this.lengthComboBox.FormattingEnabled = true;
-            this.lengthComboBox.Location = new System.Drawing.Point(375, 62);
+            this.lengthComboBox.Location = new System.Drawing.Point(370, 21);
             this.lengthComboBox.Name = "lengthComboBox";
             this.lengthComboBox.Size = new System.Drawing.Size(121, 21);
             this.lengthComboBox.TabIndex = 12;
@@ -362,32 +362,11 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(294, 60);
+            this.label14.Location = new System.Drawing.Point(289, 19);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(65, 20);
             this.label14.TabIndex = 12;
             this.label14.Text = "Length";
-            // 
-            // tenativeComboBox
-            // 
-            this.tenativeComboBox.FormattingEnabled = true;
-            this.tenativeComboBox.Location = new System.Drawing.Point(586, 11);
-            this.tenativeComboBox.Name = "tenativeComboBox";
-            this.tenativeComboBox.Size = new System.Drawing.Size(121, 21);
-            this.tenativeComboBox.TabIndex = 11;
-            this.tenativeComboBox.Visible = false;
-            this.tenativeComboBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tenativeComboBox_MouseClick);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(503, 9);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(77, 20);
-            this.label13.TabIndex = 10;
-            this.label13.Text = "Tenative";
-            this.label13.Visible = false;
             // 
             // timeComboBox
             // 
@@ -426,6 +405,27 @@
             this.label8.Size = new System.Drawing.Size(48, 20);
             this.label8.TabIndex = 9;
             this.label8.Text = "Date";
+            // 
+            // tenativeComboBox
+            // 
+            this.tenativeComboBox.FormattingEnabled = true;
+            this.tenativeComboBox.Location = new System.Drawing.Point(586, 11);
+            this.tenativeComboBox.Name = "tenativeComboBox";
+            this.tenativeComboBox.Size = new System.Drawing.Size(121, 21);
+            this.tenativeComboBox.TabIndex = 11;
+            this.tenativeComboBox.Visible = false;
+            this.tenativeComboBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tenativeComboBox_MouseClick);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(503, 9);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(77, 20);
+            this.label13.TabIndex = 10;
+            this.label13.Text = "Tenative";
+            this.label13.Visible = false;
             // 
             // panel3
             // 

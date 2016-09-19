@@ -23,11 +23,11 @@ namespace TrainingScheduler
         {
             List<string> res = new List<string>();
             string outstring = "";
-            if (trans == "Automatic")
+            if (trans == "Automatic" && vehical != "Car" && vehical != "Car Rental")
             {
                 res.Add("No Manual");
             }
-            if (brakes == "Hydraulic" || brakes == "Partial Air")
+            if ((brakes == "Hydraulic" || brakes == "Partial Air") && (vehical !="Car") && (vehical !="Car Rental"))
             {
                 res.Add("No Full Air Brakes");
             }
@@ -78,7 +78,17 @@ namespace TrainingScheduler
                 trainingRate = 150;
                 testingRate = 400;
             }
-            else 
+            else if (v == "Car Rental")
+            {
+                trainingRate = 65;
+                testingRate = 110;
+            }
+            else if (v == "Car")
+            {
+                trainingRate = 65;
+                testingRate = 65;
+            }
+            else
             {
                 trainingRate = 75;
                 testingRate = 200;

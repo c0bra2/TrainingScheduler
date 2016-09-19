@@ -32,12 +32,14 @@ namespace TrainingScheduler
             trainerComboBox.Items.Add("Chris Humphrey");
             trainerComboBox.Items.Add("Patrick Humphrey");
             trainerComboBox.Items.Add("Ed Humphrey");
+            trainerComboBox.Items.Add("Dave Skutt");
             trainerComboBox.Text = "Chris Humphrey";
 
             // testercombo options
             testerComboBox.Items.Add("Chris Humphrey");
             testerComboBox.Items.Add("Patrick Humphrey");
             testerComboBox.Items.Add("Ed Humphrey");
+            testerComboBox.Items.Add("Dave Skutt");
             testerComboBox.Text = "Patrick Humphrey";
 
             // vehicalcombo options
@@ -46,6 +48,8 @@ namespace TrainingScheduler
             vehicalComboBox.Items.Add("Customer Truck: Fifth Wheel");
             vehicalComboBox.Items.Add("Customer Truck: Pintle Hitch");
             vehicalComboBox.Items.Add("Customer Truck");
+            vehicalComboBox.Items.Add("Car Rental");
+            vehicalComboBox.Items.Add("Car");
             vehicalComboBox.Text = "Semi Rental";
 
             // cdlcombo options
@@ -167,7 +171,13 @@ namespace TrainingScheduler
             sObj.time = timeComboBox.Text;
             sObj.id = idComboBox.Text;
             sObj.tentative = tenativeComboBox.Text;
-            sObj.setHours("3hrs");
+            if (dObj.vehical != "Car Rental" && dObj.vehical != "Car"){
+                sObj.setHours("3hrs");
+            }
+            else {
+                sObj.setHours("1hrs");
+            }
+            
             sObj.type = "test";
             idComboBox.Items.Add((Int32.Parse(idComboBox.Text) + 1).ToString());
             idComboBox.Text = (Int32.Parse(idComboBox.Text) + 1).ToString();
@@ -633,15 +643,40 @@ hr {
 <body>
 <h1>Humphrey Driver Training and Testing <span class=" + "\"dba" + "\">" + "(DBA)</span></br><span class=" + "\"hed2" + "\">" + "Humphrey Enterprises, Inc.&nbsp&nbsp&nbsp&nbsp</span>" +
  "<span class=" + "\"hed2" + "\">" + "Office:&nbsp&nbsp</span><span class=" + "\"hed" + "\">" + "2089 Corunna Ave. Owosso MI, 48867&nbsp&nbsp&nbsp&nbsp&nbsp</span><span class=" + "\"hed2" + "\">" +
- "Phone:</span><span class=" + "\"hed" + "\">" + "&nbsp&nbsp989-723-7176</span></br><hr><span class=" + "\"hed3" + "\">" + "Department of State Certification #P000422&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" +
+ "Phone:</span><span class=" + "\"hed" + "\">" + "&nbsp&nbsp989-723-7176</span></br><hr><span class=" + "\"hed3" + "\">";
+            if (customer.vehical != "Car" && customer.vehical != "Car Rental")
+            {
+              output +=  "Department of State Certification #P000422&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" +
  "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" +
  "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" +
  "&nbsp&nbsp</span></h1></br>";
+            }
+            else
+            {
+                output += "Department of State Certification #P000421&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" +
+ "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" +
+ "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" +
+ "&nbsp&nbsp</span></h1></br>";
+            }
             output += " <p>" + "Customer: " + customer.first_name + " " + customer.last_name + "</br>";
-            output += "CDL Lot: 110 S. Delaney Rd. Owosso MI, 48867</br>";
-            output += "Vehical: " + customer.vehical + ", " + customer.trans + " Trans, " + customer.brakes + " Brakes <br/>";
+            if (customer.vehical != "Car" && customer.vehical != "Car Rental")
+            {
+                output += "CDL Lot: 110 S. Delaney Rd. Owosso MI, 48867</br>";
+            }
+            else
+            {
+                output += "Lot: 2089 Corunna Ave Owosso MI, 48867<br/>";
+            }
+            if (customer.vehical != "Car" && customer.vehical != "Car Rental")
+            {
+                output += "Vehical: " + customer.vehical + ", " + customer.trans + " Trans, " + customer.brakes + " Brakes <br/>";
+            }
+                
             output += customer.restrictions(true);
-            output += "Class: " + "CDL-" + customer.cdl + "</br>";
+            if (customer.vehical != "Car" && customer.vehical != "Car Rental")
+            {
+                output += "Class: " + "CDL-" + customer.cdl + "</br>";
+            }
             output += "Training Rate $" + customer.trainingRate + "/hr</br>";
             output += "Testing Rate $" + customer.testingRate + "</br>";
             output += "</p><div class=\"schedule\">" +
@@ -683,7 +718,6 @@ hr {
                     output += "<tr>";
                     output += "<td>" + customerSchedule[i].date + "</td>" + "<td>" + customerSchedule[i].time + "</td>" + "<td>" + customerSchedule[i].hours + "</td>" + "<td>" + customerSchedule[i].customer.tester + "</td>";
                     output += "</tr>";
-                    totalHours += customerSchedule[i].hoursTrained;
                 }
             }
             output += "</table></br></br>";
