@@ -462,6 +462,7 @@ namespace TrainingScheduler
         /// <param name="e"></param>
         private void button7_Click(object sender, EventArgs e)
         {
+            button7.Enabled = false;
             int totalHours = 0;
             string filename;
             string output = "";
@@ -472,17 +473,12 @@ namespace TrainingScheduler
 <html>
 <head>
 <style>
-body {
-    background-color: white;
-}
-
 h1 {
     color: black;
     text-align: left;
     font-family: Helvetica;
     font-size: 27px
 }
-
 .dba {
     color: black;
     font-family: Helvetica;
@@ -505,6 +501,13 @@ text-align: left;
 font-family: bold Helvetica;
 font-size: 15px;
 }
+.hed4{
+color: black;
+text-align: left;
+font-family: Helvetica;
+font-size: 13px;
+text-transform: none;
+}
 p {
     font-family: Helvetica;
     font-size: 15px;
@@ -518,16 +521,115 @@ hr {
     border-style: inset;
     border-width: 1px;
 }
-</style>
+        body {
+            font-family: Helvetica, sans;
+            font-size: 14px;
+            color: #333333;
+            font-weight: normal;
+            line-height: 1.2;
+            width: 960px;
+            margin: 0 auto;
+            padding: 0;
+        }
+        
+        li {
+            list-style-type: none;
+            display: inline-block;
+        }
+        .header {
+            text-align: center;
+            padding: 5px auto;
+        }
+        
+        .title {
+            text-align: center;
+        }
+        
+        .title .span-text {
+            font-size: 14px;
+        }
+        
+        .address {
+            padding-bottom: 10px;
+            border-bottom: 3px solid #a5a5a5;
+            text-align: center;
+        }
+        
+        .cert {
+            font-weight: bold;
+            text-align: center;
+            padding-bottom: 20px;
+        }
+        
+        .cust_detail {
+        /* No styles yet */
+        }
+        
+        .cust_detail table td {
+            text-align: left;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            width: 10%;
+        }
+        .schedule {
+            padding-top: 10px;
+           
+        }
+        
+        .schedule h3 {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #a5a5a5;
+            text-transform: uppercase;
+            color: #3e3e3e;
+        }
+        
+        .schedule table tr th {
+            text-align: left;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            width: 20%;
+        }
+        
+        .schedule table tr td {
+            text-align: left;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            font-weight: normal;
+            min-width: 120px;            
+        }
+        
+        .summary {
+            padding-top: 10px;
+            padding-bottom: 5px;
+        }
+        
+        .summary h3 {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #a5a5a5;
+            text-transform: uppercase;
+            color: #3e3e3e;
+        }
+        .summary h3 span {
+            text-transform: none;
+        }
+        
+        .summary table td {
+            text-align: left;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            width: 10%;
+        }
+        </style>
 </head>
 <body>
-
-<h1>Humphrey Driver Training and Testing <span class=" + "\"dba" + "\">" + "(DBA)</span></br><span class=" + "\"hed2" + "\">" + "Humphrey Enterprises, Inc.&nbsp&nbsp&nbsp&nbsp</span>" + 
-"<span class=" + "\"hed2" + "\">" + "Office:&nbsp&nbsp</span><span class=" + "\"hed" + "\">" + "2089 Corunna Ave. Owosso MI, 48867&nbsp&nbsp&nbsp&nbsp&nbsp</span><span class=" + "\"hed2" + "\">" +
-"Phone:</span><span class=" + "\"hed" + "\">" + "&nbsp&nbsp989-723-7176</span></br><hr><span class=" + "\"hed3" + "\">" + "Department of State Certification #P000422&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + 
-"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + 
-"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" + 
-"&nbsp&nbsp</span></h1><br/></br>";
+<h1>Humphrey Driver Training and Testing <span class=" + "\"dba" + "\">" + "(DBA)</span></br><span class=" + "\"hed2" + "\">" + "Humphrey Enterprises, Inc.&nbsp&nbsp&nbsp&nbsp</span>" +
+ "<span class=" + "\"hed2" + "\">" + "Office:&nbsp&nbsp</span><span class=" + "\"hed" + "\">" + "2089 Corunna Ave. Owosso MI, 48867&nbsp&nbsp&nbsp&nbsp&nbsp</span><span class=" + "\"hed2" + "\">" +
+ "Phone:</span><span class=" + "\"hed" + "\">" + "&nbsp&nbsp989-723-7176</span></br><hr><span class=" + "\"hed3" + "\">" + "Department of State Certification #P000422&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" +
+ "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" +
+ "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" +
+ "&nbsp&nbsp</span></h1><br/></br>";
             output += " <p>" + "Customer: " + customer.first_name + " " + customer.last_name + "</br>";
             output += "CDL Lot: 110 S. Delaney Rd. Owosso MI, 48867</br>";
             output += "Vehical: " + customer.vehical + ", " + customer.trans + " Trans, " + customer.brakes + " Brakes <br/>";
@@ -535,64 +637,74 @@ hr {
             output += "Class: " + "CDL-" + customer.cdl + "</br>";
             output += "Training Rate $" + customer.trainingRate + "/hr</br>";
             output += "Testing Rate $" + customer.testingRate + "</br>";
-            output += "</br></br>";
-            output += "<b>Training Schedule</b></br>" + padStringh("Date", 22) + padStringh("Time", 18) + padStringh("Length", 14) + padStringh("Trainer", 10) + "</br>";
-            for (int i = 0; i < 77; i++)
-            {
-                output += "-";
-            }
-            output += "</br>";
+            output += "</p><div class=\"schedule\">" + 
+            @"<h3>Training Schedule</h3>
+            <table>
+                <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Length</th>
+                    <th>Trainer</th>
+                </tr>";
+
             for (int i = 0; i < customerSchedule.Count; i++)
             {
                 if (customerSchedule[i].type == "train")
                 {
-                    output += padStringh(customerSchedule[i].date, 19) + padStringh(customerSchedule[i].time, 14) + padStringh(customerSchedule[i].hours, 17) + padStringh(customerSchedule[i].customer.trainer, 20);
-                    if (customerSchedule[i].tentative == "Yes")
-                    {
-                        output += "(Tenative)</br>";
-                    }
-                    output += "</br>";
+                    output += "<tr>";
+                    output += "<td>" + customerSchedule[i].date + "</td>" + "<td>"+ customerSchedule[i].time + "</td>" + "<td>" + customerSchedule[i].hours + "</td>" + "<td>" + customerSchedule[i].customer.trainer + "</td>";
+                    output += "</tr>";
                     totalHours += customerSchedule[i].hoursTrained;
                 }
             }
+            output += "</table></br></br>";
 
-            output += "</br></br>";
-            output += "<b>Testing Schedule</b></br>" + padStringh("Date", 22) + padStringh("Time", 18) + padStringh("Length", 14) + padStringh("Tester", 10) + "</br>";
-            for (int i = 0; i < 77; i++)
-            {
-                output += "-";
-            }
-            output += "</br>";
+            output += @"<h3>Testing Schedule</h3>
+            <table>
+                <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Length</th>
+                    <th>Tester</th>
+                </tr>";
+        
             for (int i = 0; i < customerSchedule.Count; i++)
             {
                 if (customerSchedule[i].type == "test")
                 {
-                    output += padStringh(customerSchedule[i].date, 19) + padStringh(customerSchedule[i].time, 14) + padStringh(customerSchedule[i].hours, 17) + padStringh(customerSchedule[i].customer.tester, 20);
-                    if (customerSchedule[i].tentative == "Yes")
-                    {
-                        output += "(Tenative)</br>";
-                    }
-                    output += "</br>";
+                    output += "<tr>";
+                    output += "<td>" + customerSchedule[i].date + "</td>" + "<td>" + customerSchedule[i].time + "</td>" + "<td>" + customerSchedule[i].hours + "</td>" + "<td>" + customerSchedule[i].customer.tester + "</td>";
+                    output += "</tr>";
+                    totalHours += customerSchedule[i].hoursTrained;
                 }
             }
-            output += "</br></br></br></br></br>";
-            output += "<b>Summary</b> (Totals subject to change if deviating from this outline)<br/>";
-            for (int i = 0; i < 67; i++)
-            {
-                output += "-";
-            }
-            output += "<br/>";
-            output += "Training (" + totalHours + "hrs * $" + customer.trainingRate + "/hr) = $" + totalHours * customer.trainingRate + "<br/>";
+            output += "</table></br></br>";
+            output += "<h3>Summary<span class=\"hed4\">&nbsp(Totals subject to change if deviating from this outline)</span></h3>";
+
+            output += "<p>Training (" + totalHours + "hrs * $" + customer.trainingRate + "/hr) = $" + totalHours * customer.trainingRate + "<br/>";
             output += "Test = $" + customer.testingRate + "<br/><br/>";
             output += "Grand Total = $" + ((totalHours * customer.trainingRate) + customer.testingRate);
-            output += @"</p>
+            output += @"</div></p>
 
 </body>
 </html>";
             
             System.IO.File.WriteAllText(filename, output);
-            System.Diagnostics.Process.Start(filename);
+            SelectPdf.HtmlToPdf converter = new SelectPdf.HtmlToPdf();
+            SelectPdf.PdfDocument doc = converter.ConvertHtmlString(output);
+            try
+            {
+                doc.Save("Humphrey's.pdf");
+            }
+            catch
+            {
 
+            }
+            doc.Close();
+
+            System.Diagnostics.Process.Start(filename);
+            System.Diagnostics.Process.Start("Humphrey's.pdf");
+            button7.Enabled = true;
         }
 
         private void button3_Click(object sender, EventArgs e)

@@ -2,6 +2,9 @@
 <html>
 <head>
 <style>
+body {
+    background-color: white;
+}
 h1 {
     color: black;
     text-align: left;
@@ -125,7 +128,6 @@ hr {
             padding-top: 5px;
             padding-bottom: 5px;
             font-weight: normal;
-            min-width: 120px;            
         }
         
         .summary {
@@ -153,21 +155,21 @@ hr {
         </style>
 </head>
 <body>
-<h1>Humphrey Driver Training and Testing <span class="dba">(DBA)</span></br><span class="hed2">Humphrey Enterprises, Inc.&nbsp&nbsp&nbsp&nbsp</span><span class="hed2">Office:&nbsp&nbsp</span><span class="hed">2089 Corunna Ave. Owosso MI, 48867&nbsp&nbsp&nbsp&nbsp&nbsp</span><span class="hed2">Phone:</span><span class="hed">&nbsp&nbsp989-723-7176</span></br><hr><span class="hed3">Department of State Certification #P000422&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span></h1><br/></br> <p>Customer: John Doe</br>CDL Lot: 110 S. Delaney Rd. Owosso MI, 48867</br>Vehical: Customer Truck: Pintle Hitch, Manual Trans, Hydraulic Brakes <br/>Restrictions: No Full Air Brakes, No Fifth Wheel<br/>Class: CDL-A</br>Training Rate $75/hr</br>Testing Rate $200</br></p><div class="schedule"><h3>Training Schedule</h3>
+<h1>Humphrey Driver Training and Testing <span class="dba">(DBA)</span></br><span class="hed2">Humphrey Enterprises, Inc.&nbsp&nbsp&nbsp&nbsp</span><span class="hed2">Office:&nbsp&nbsp</span><span class="hed">2089 Corunna Ave. Owosso MI, 48867&nbsp&nbsp&nbsp&nbsp&nbsp</span><span class="hed2">Phone:</span><span class="hed">&nbsp&nbsp989-723-7176</span></br><hr><span class="hed3">Department of State Certification #P000422&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</span></h1><br/></br> <p>Customer:  </br>CDL Lot: 110 S. Delaney Rd. Owosso MI, 48867</br>Vehical: Semi Rental, Manual Trans, Full Air Brakes <br/>Class: CDL-A</br>Training Rate $150/hr</br>Testing Rate $450</br></p><div class="schedule"><h3>Training Schedule</h3>
             <table>
                 <tr>
                     <th>Date</th>
                     <th>Time</th>
                     <th>Length</th>
                     <th>Trainer</th>
-                </tr><tr><td>9/14/2016</td><td>9:00AM</td><td>3hrs</td><td>Chris Humphrey</td></tr><tr><td>9/15/2016</td><td>1:00PM</td><td>4hrs</td><td>Chris Humphrey</td></tr><tr><td>9/16/2016</td><td>1:00PM</td><td>4hrs</td><td>Chris Humphrey</td></tr><tr><td>9/17/2016</td><td>1:00PM</td><td>2hrs</td><td>Chris Humphrey</td></tr><tr><td>9/19/2016</td><td>9:00AM</td><td>2hrs</td><td>Chris Humphrey</td></tr></table></br></br><h3>Testing Schedule</h3>
+                </tr><tr><td>9/18/2016</td><td>9:00AM</td><td>4hrs</td><td>Chris Humphrey</td></tr></table></div></br></br><div class="schedule"><h3>Testing Schedule</h3>
             <table>
                 <tr>
                     <th>Date</th>
                     <th>Time</th>
                     <th>Length</th>
                     <th>Tester</th>
-                </tr><tr><td>9/19/2016</td><td>1:00PM</td><td>3hrs</td><td>Patrick Humphrey</td></tr></table></br></br><h3>Summary<span class="hed4">&nbsp(Totals subject to change if deviating from this outline)</span></h3><p>Training (18hrs * $75/hr) = $1350<br/>Test = $200<br/><br/>Grand Total = $1550</div></p>
+                </tr><tr><td>9/18/2016</td><td>9:00AM</td><td>3hrs</td><td>Patrick Humphrey</td></tr></table></div></br></br><div class="schedule"><h3>Summary<span class="hed4">&nbsp(Totals subject to change if deviating from this outline)</span></h3><p>Training (7hrs * $150/hr) = $1050<br/>Test = $450<br/><br/>Grand Total = $1500</div></p>
 
 </body>
 </html>
