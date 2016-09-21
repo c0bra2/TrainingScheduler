@@ -158,6 +158,7 @@
             this.vehicalComboBox.Name = "vehicalComboBox";
             this.vehicalComboBox.Size = new System.Drawing.Size(121, 21);
             this.vehicalComboBox.TabIndex = 7;
+            this.vehicalComboBox.SelectedIndexChanged += new System.EventHandler(this.vehicalComboBox_SelectedIndexChanged);
             this.vehicalComboBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.vehicalComboBox_MouseClick);
             // 
             // label7

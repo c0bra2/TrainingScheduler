@@ -49,7 +49,7 @@ namespace TrainingScheduler
             vehicalComboBox.Items.Add("Customer Truck: Pintle Hitch");
             vehicalComboBox.Items.Add("Customer Truck");
             vehicalComboBox.Items.Add("Car Rental");
-            vehicalComboBox.Items.Add("Car");
+            vehicalComboBox.Items.Add("Customer's Car");
             vehicalComboBox.Text = "Semi Rental";
 
             // cdlcombo options
@@ -171,7 +171,7 @@ namespace TrainingScheduler
             sObj.time = timeComboBox.Text;
             sObj.id = idComboBox.Text;
             sObj.tentative = tenativeComboBox.Text;
-            if (dObj.vehical != "Car Rental" && dObj.vehical != "Car"){
+            if (dObj.vehical != "Car Rental" && dObj.vehical != "Customer's Car"){
                 sObj.setHours("3hrs");
             }
             else {
@@ -644,7 +644,7 @@ hr {
 <h1>Humphrey Driver Training and Testing <span class=" + "\"dba" + "\">" + "(DBA)</span></br><span class=" + "\"hed2" + "\">" + "Humphrey Enterprises, Inc.&nbsp&nbsp&nbsp&nbsp</span>" +
  "<span class=" + "\"hed2" + "\">" + "Office:&nbsp&nbsp</span><span class=" + "\"hed" + "\">" + "2089 Corunna Ave. Owosso MI, 48867&nbsp&nbsp&nbsp&nbsp&nbsp</span><span class=" + "\"hed2" + "\">" +
  "Phone:</span><span class=" + "\"hed" + "\">" + "&nbsp&nbsp989-723-7176</span></br><hr><span class=" + "\"hed3" + "\">";
-            if (customer.vehical != "Car" && customer.vehical != "Car Rental")
+            if (customer.vehical != "Customer's Car" && customer.vehical != "Car Rental")
             {
               output +=  "Department of State Certification #P000422&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" +
  "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" +
@@ -659,7 +659,7 @@ hr {
  "&nbsp&nbsp</span></h1></br>";
             }
             output += " <p>" + "Customer: " + customer.first_name + " " + customer.last_name + "</br>";
-            if (customer.vehical != "Car" && customer.vehical != "Car Rental")
+            if (customer.vehical != "Customer's Car" && customer.vehical != "Car Rental")
             {
                 output += "CDL Lot: 110 S. Delaney Rd. Owosso MI, 48867</br>";
             }
@@ -667,13 +667,17 @@ hr {
             {
                 output += "Lot: 2089 Corunna Ave Owosso MI, 48867<br/>";
             }
-            if (customer.vehical != "Car" && customer.vehical != "Car Rental")
+            if (customer.vehical != "Customer's Car" && customer.vehical != "Car Rental")
             {
                 output += "Vehical: " + customer.vehical + ", " + customer.trans + " Trans, " + customer.brakes + " Brakes <br/>";
             }
+            else
+            {
+                output += "Vehical: " + customer.vehical + "<br/>";
+            }
                 
             output += customer.restrictions(true);
-            if (customer.vehical != "Car" && customer.vehical != "Car Rental")
+            if (customer.vehical != "Customer's Car" && customer.vehical != "Car Rental")
             {
                 output += "Class: " + "CDL-" + customer.cdl + "</br>";
             }
@@ -817,6 +821,30 @@ hr {
         {
             dateTimePicker1.Select();
             SendKeys.Send("%{DOWN}");
+        }
+
+        private void vehicalComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (vehicalComboBox.Text == "Car Rental" || vehicalComboBox.Text == "Customer's Car")
+            {
+                cdlComboBox.Visible = false;
+                label10.Visible = false;
+                transComboBox.Visible = false;
+                label12.Visible = false;
+                brakeComboBox.Visible = false;
+                label11.Visible = false;
+                lengthComboBox.Text = "1hrs";
+            }
+            else
+            {
+                cdlComboBox.Visible = true;
+                label10.Visible = true;
+                transComboBox.Visible = true;
+                label12.Visible = true;
+                brakeComboBox.Visible = true;
+                label11.Visible = true;
+                lengthComboBox.Text = "3hrs";
+            }
         }
     }
 }
