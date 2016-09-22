@@ -106,6 +106,16 @@ namespace TrainingScheduler
             // lengthcombo options
             idComboBox.Items.Add("1");
             idComboBox.Text = "1";
+
+            //UI Behavior Update. Bias towards car tests
+            cdlComboBox.Visible = false;
+            label10.Visible = false;
+            transComboBox.Visible = false;
+            label12.Visible = false;
+            brakeComboBox.Visible = false;
+            label11.Visible = false;
+            lengthComboBox.Text = "1hrs";
+            vehicalComboBox.Text = "Customer's Car";
         }
 
 
@@ -122,7 +132,7 @@ namespace TrainingScheduler
             dObj.trans = transComboBox.Text;
             dObj.brakes = brakeComboBox.Text;
             dObj.cdl = cdlComboBox.Text;
-            dObj.setRate(dObj.vehical);
+            dObj.setRate(dObj.vehical, false);
 
             //create schedule obj
             Schedule sObj = new Schedule();
@@ -162,7 +172,7 @@ namespace TrainingScheduler
             dObj.trans = transComboBox.Text;
             dObj.brakes = brakeComboBox.Text;
             dObj.cdl = cdlComboBox.Text;
-            dObj.setRate(dObj.vehical);
+            dObj.setRate(dObj.vehical, false);
 
             //create schedule obj
             Schedule sObj = new Schedule();
@@ -190,6 +200,13 @@ namespace TrainingScheduler
             {
                 //do nothing
             }
+
+            //go through and set rates
+            for (int i = 0; i < customerSchedule.Count; i++)
+            {
+                customerSchedule[i].customer.setRate(vehicalComboBox.Text, false);
+            }
+
             //print training in box and testing
             printTrainingToBox(customerSchedule);
             printTestingToBox(customerSchedule);
@@ -275,7 +292,7 @@ namespace TrainingScheduler
             bool testDate = false;
             for (int i = 0; i < s.Count; i++)
             {
-                if (s[i].type == "test")
+                if (s[i].type == "test" ||s[i].type == "retest")
                 {
                     testDate = true;
                 }
@@ -292,7 +309,7 @@ namespace TrainingScheduler
                 //print data for each testing session
                 for (int i = 0; i < s.Count; i++)
                 {
-                    if (s[i].type == "test")
+                    if (s[i].type == "test" || s[i].type == "retest") 
                     {
                         richTextBox1.AppendText(padString(s[i].id, 6) +
                             padString(s[i].date, 15) + padString(s[i].time, 12));
@@ -303,6 +320,10 @@ namespace TrainingScheduler
                         else if (s[i].customer.tester == "Patrick Humphrey")
                         {
                             richTextBox1.AppendText("w/Pat ");
+                        }
+                        else if(s[i].customer.tester == "Dave Skutt")
+                        {
+                            richTextBox1.AppendText("w/Dave");
                         }
                         else if (s[i].customer.tester == "Ed Humphrey")
                         {
@@ -316,7 +337,7 @@ namespace TrainingScheduler
                         {
                             richTextBox1.AppendText("\n");
                         }
-                        total += s[i].hoursTrained * s[i].customer.trainingRate;
+                        total += s[i].hoursTrained * s[i].customer.testingRate;
                     }
                 }
                 richTextBox1.AppendText("Testing Cost: $" + total);
@@ -374,20 +395,6 @@ namespace TrainingScheduler
             for (; p > 0; p--)
             {
                 s += " ";
-            }
-            return s;
-        }
-        public string padStringh(string s, int p)
-        {
-            int count = 0;
-            for (int i = 0; i < s.Length; i++)
-            {
-                count++;
-            }
-            p -= count;
-            for (; p > 0; p--)
-            {
-                s += "&nbsp";
             }
             return s;
         }
@@ -845,6 +852,61 @@ hr {
                 label11.Visible = true;
                 lengthComboBox.Text = "3hrs";
             }
+        }
+
+        //retest button clicked
+        private void button6_Click(object sender, EventArgs e)
+        {
+            //create driver object
+            Driver dObj = new Driver();
+            dObj.first_name = firstTextBox.Text;
+            dObj.last_name = lastTextBox.Text;
+            dObj.trainer = trainerComboBox.Text;
+            dObj.tester = testerComboBox.Text;
+            dObj.vehical = vehicalComboBox.Text;
+            dObj.trans = transComboBox.Text;
+            dObj.brakes = brakeComboBox.Text;
+            dObj.cdl = cdlComboBox.Text;
+            dObj.setRate(dObj.vehical, true);
+
+            //create schedule obj
+            Schedule sObj = new Schedule();
+            sObj.customer = dObj;
+            sObj.date = dateTimePicker1.Value.ToShortDateString();
+            sObj.time = timeComboBox.Text;
+            sObj.id = idComboBox.Text;
+            sObj.tentative = tenativeComboBox.Text;
+            if (dObj.vehical != "Car Rental" && dObj.vehical != "Customer's Car")
+            {
+                sObj.setHours(timeComboBox.Text);
+            }
+            else
+            {
+                sObj.setHours("1hrs");
+            }
+
+            sObj.type = "retest";
+            idComboBox.Items.Add((Int32.Parse(idComboBox.Text) + 1).ToString());
+            idComboBox.Text = (Int32.Parse(idComboBox.Text) + 1).ToString();
+            //add to list
+            try
+            {
+                customerSchedule.Add(sObj);
+            }
+            catch
+            {
+                //do nothing
+            }
+
+            //go through and set rates
+            for (int i = 0; i < customerSchedule.Count; i++)
+            {
+                customerSchedule[i].customer.setRate(vehicalComboBox.Text, true);
+            }
+
+            //print training in box and testing
+            printTrainingToBox(customerSchedule);
+            printTestingToBox(customerSchedule);
         }
     }
 }

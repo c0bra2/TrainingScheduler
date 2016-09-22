@@ -66,27 +66,54 @@ namespace TrainingScheduler
             }
         }
 
-        public void setRate(string v)
+        public void setRate(string v, bool retest)
         {
             if (v == "Semi Rental")
             {
-                trainingRate = 150;
-                testingRate = 450;
+                if (!retest)
+                {
+                    trainingRate = 150;
+                    testingRate = 450;
+                }
+                else
+                {
+                    trainingRate = 150;
+                    testingRate = 350;
+                }
             }
             else if (v == "Truck Rental")
             {
-                trainingRate = 150;
-                testingRate = 400;
+                if (!retest)
+                {
+                    trainingRate = 150;
+                    testingRate = 300;
+                }
             }
             else if (v == "Car Rental")
             {
-                trainingRate = 65;
-                testingRate = 110;
+                if (!retest)
+                {
+                    trainingRate = 65;
+                    testingRate = 110;
+                }
+                else
+                {
+                    trainingRate = 65;
+                    testingRate = 105;
+                }
             }
-            else if (v == "Car")
+            else if (v == "Customer's Car")
             {
-                trainingRate = 65;
-                testingRate = 65;
+                if (!retest)
+                {
+                    trainingRate = 65;
+                    testingRate = 65;
+                }
+                else
+                {
+                    trainingRate = 65;
+                    testingRate = 60;
+                }
             }
             else
             {
