@@ -337,7 +337,7 @@ namespace TrainingScheduler
                         {
                             richTextBox1.AppendText("\n");
                         }
-                        total += s[i].hoursTrained * s[i].customer.testingRate;
+                        total += s[i].customer.testingRate;
                     }
                 }
                 richTextBox1.AppendText("Testing Cost: $" + total);
