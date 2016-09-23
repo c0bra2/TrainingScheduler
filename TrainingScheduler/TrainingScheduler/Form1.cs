@@ -33,6 +33,7 @@ namespace TrainingScheduler
             trainerComboBox.Items.Add("Patrick Humphrey");
             trainerComboBox.Items.Add("Ed Humphrey");
             trainerComboBox.Items.Add("Dave Skutt");
+            trainerComboBox.Items.Add("Eddie Humphrey");
             trainerComboBox.Text = "Chris Humphrey";
 
             // testercombo options
@@ -40,6 +41,7 @@ namespace TrainingScheduler
             testerComboBox.Items.Add("Patrick Humphrey");
             testerComboBox.Items.Add("Ed Humphrey");
             testerComboBox.Items.Add("Dave Skutt");
+            testerComboBox.Item.Add("Eddie Humphrey");
             testerComboBox.Text = "Patrick Humphrey";
 
             // vehicalcombo options
