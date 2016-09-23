@@ -484,6 +484,7 @@ namespace TrainingScheduler
         /// <param name="e"></param>
         private void button7_Click(object sender, EventArgs e)
         {
+            bool hasTest = false;
             button7.Enabled = false;
             int totalHours = 0;
             string filename;
@@ -729,14 +730,23 @@ hr {
                     output += "<tr>";
                     output += "<td>" + customerSchedule[i].date + "</td>" + "<td>" + customerSchedule[i].time + "</td>" + "<td>" + customerSchedule[i].hours + "</td>" + "<td>" + customerSchedule[i].customer.tester + "</td>";
                     output += "</tr>";
+                    hasTest = true;
                 }
             }
             output += "</table></br></br>";
             output += "<h3>Summary<span class=\"hed4\">&nbsp(Totals subject to change if deviating from this outline)</span></h3>";
 
             output += "<p>Training (" + totalHours + "hrs * $" + customer.trainingRate + "/hr) = $" + totalHours * customer.trainingRate + "<br/>";
-            output += "Test = $" + customer.testingRate + "<br/><br/>";
-            output += "Grand Total = $" + ((totalHours * customer.trainingRate) + customer.testingRate);
+            if (hasTest)
+            {
+                output += "Test = $" + customer.testingRate + "<br/><br/>";
+                output += "Grand Total = $" + ((totalHours * customer.trainingRate) + customer.testingRate);
+            }
+            else
+            {
+                output += "Test = $" + "0" + "<br/><br/>";
+                output += "Grand Total = $" + (totalHours * customer.trainingRate);
+            }
             output += @"</div></p>
 
 </body>
