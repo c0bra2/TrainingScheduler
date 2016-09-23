@@ -41,7 +41,7 @@ namespace TrainingScheduler
             testerComboBox.Items.Add("Patrick Humphrey");
             testerComboBox.Items.Add("Ed Humphrey");
             testerComboBox.Items.Add("Dave Skutt");
-            testerComboBox.Item.Add("Eddie Humphrey");
+            testerComboBox.Items.Add("Eddie Humphrey");
             testerComboBox.Text = "Patrick Humphrey";
 
             // vehicalcombo options
