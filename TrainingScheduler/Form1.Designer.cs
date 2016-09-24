@@ -56,17 +56,16 @@
             this.label15 = new System.Windows.Forms.Label();
             this.lengthComboBox = new System.Windows.Forms.ComboBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.tenativeComboBox = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.timeComboBox = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
-            this.tenativeComboBox = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -129,8 +128,7 @@
             this.trainerComboBox.Location = new System.Drawing.Point(370, 17);
             this.trainerComboBox.Name = "trainerComboBox";
             this.trainerComboBox.Size = new System.Drawing.Size(121, 21);
-            this.trainerComboBox.TabIndex = 5;
-            this.trainerComboBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.trainerComboBox_MouseClick);
+            this.trainerComboBox.TabIndex = 3;
             // 
             // testerComboBox
             // 
@@ -138,8 +136,7 @@
             this.testerComboBox.Location = new System.Drawing.Point(370, 43);
             this.testerComboBox.Name = "testerComboBox";
             this.testerComboBox.Size = new System.Drawing.Size(121, 21);
-            this.testerComboBox.TabIndex = 6;
-            this.testerComboBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.testerComboBox_MouseClick);
+            this.testerComboBox.TabIndex = 4;
             // 
             // label6
             // 
@@ -157,9 +154,7 @@
             this.vehicalComboBox.Location = new System.Drawing.Point(370, 70);
             this.vehicalComboBox.Name = "vehicalComboBox";
             this.vehicalComboBox.Size = new System.Drawing.Size(121, 21);
-            this.vehicalComboBox.TabIndex = 7;
-            this.vehicalComboBox.SelectedIndexChanged += new System.EventHandler(this.vehicalComboBox_SelectedIndexChanged);
-            this.vehicalComboBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.vehicalComboBox_MouseClick);
+            this.vehicalComboBox.TabIndex = 5;
             // 
             // label7
             // 
@@ -203,8 +198,7 @@
             this.brakeComboBox.Location = new System.Drawing.Point(370, 97);
             this.brakeComboBox.Name = "brakeComboBox";
             this.brakeComboBox.Size = new System.Drawing.Size(121, 21);
-            this.brakeComboBox.TabIndex = 8;
-            this.brakeComboBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.brakeComboBox_MouseClick);
+            this.brakeComboBox.TabIndex = 13;
             // 
             // transComboBox
             // 
@@ -212,8 +206,7 @@
             this.transComboBox.Location = new System.Drawing.Point(112, 95);
             this.transComboBox.Name = "transComboBox";
             this.transComboBox.Size = new System.Drawing.Size(121, 21);
-            this.transComboBox.TabIndex = 4;
-            this.transComboBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.transComboBox_MouseClick);
+            this.transComboBox.TabIndex = 12;
             // 
             // label12
             // 
@@ -241,8 +234,7 @@
             this.cdlComboBox.Location = new System.Drawing.Point(112, 68);
             this.cdlComboBox.Name = "cdlComboBox";
             this.cdlComboBox.Size = new System.Drawing.Size(121, 21);
-            this.cdlComboBox.TabIndex = 3;
-            this.cdlComboBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cdlComboBox_MouseClick);
+            this.cdlComboBox.TabIndex = 9;
             // 
             // label10
             // 
@@ -279,6 +271,8 @@
             this.panel2.Controls.Add(this.label15);
             this.panel2.Controls.Add(this.lengthComboBox);
             this.panel2.Controls.Add(this.label14);
+            this.panel2.Controls.Add(this.tenativeComboBox);
+            this.panel2.Controls.Add(this.label13);
             this.panel2.Controls.Add(this.timeComboBox);
             this.panel2.Controls.Add(this.label9);
             this.panel2.Controls.Add(this.dateTimePicker1);
@@ -297,7 +291,6 @@
             this.button6.TabIndex = 19;
             this.button6.Text = "Retest";
             this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button5
             // 
@@ -308,7 +301,6 @@
             this.button5.TabIndex = 18;
             this.button5.Text = "Test";
             this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button2
             // 
@@ -338,8 +330,7 @@
             this.idComboBox.Location = new System.Drawing.Point(64, 100);
             this.idComboBox.Name = "idComboBox";
             this.idComboBox.Size = new System.Drawing.Size(121, 21);
-            this.idComboBox.TabIndex = 11;
-            this.idComboBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.idComboBox_MouseClick);
+            this.idComboBox.TabIndex = 15;
             // 
             // label15
             // 
@@ -354,21 +345,38 @@
             // lengthComboBox
             // 
             this.lengthComboBox.FormattingEnabled = true;
-            this.lengthComboBox.Location = new System.Drawing.Point(370, 21);
+            this.lengthComboBox.Location = new System.Drawing.Point(375, 62);
             this.lengthComboBox.Name = "lengthComboBox";
             this.lengthComboBox.Size = new System.Drawing.Size(121, 21);
-            this.lengthComboBox.TabIndex = 12;
-            this.lengthComboBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lengthComboBox_MouseClick);
+            this.lengthComboBox.TabIndex = 13;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(289, 19);
+            this.label14.Location = new System.Drawing.Point(294, 60);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(65, 20);
             this.label14.TabIndex = 12;
             this.label14.Text = "Length";
+            // 
+            // tenativeComboBox
+            // 
+            this.tenativeComboBox.FormattingEnabled = true;
+            this.tenativeComboBox.Location = new System.Drawing.Point(375, 21);
+            this.tenativeComboBox.Name = "tenativeComboBox";
+            this.tenativeComboBox.Size = new System.Drawing.Size(121, 21);
+            this.tenativeComboBox.TabIndex = 11;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(291, 23);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(77, 20);
+            this.label13.TabIndex = 10;
+            this.label13.Text = "Tenative";
             // 
             // timeComboBox
             // 
@@ -376,8 +384,7 @@
             this.timeComboBox.Location = new System.Drawing.Point(64, 62);
             this.timeComboBox.Name = "timeComboBox";
             this.timeComboBox.Size = new System.Drawing.Size(121, 21);
-            this.timeComboBox.TabIndex = 10;
-            this.timeComboBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.timeComboBox_MouseClick);
+            this.timeComboBox.TabIndex = 7;
             // 
             // label9
             // 
@@ -395,7 +402,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(65, 22);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 9;
+            this.dateTimePicker1.TabIndex = 6;
             this.dateTimePicker1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.dateTimePicker1_MouseDown);
             // 
             // label8
@@ -407,27 +414,6 @@
             this.label8.Size = new System.Drawing.Size(48, 20);
             this.label8.TabIndex = 9;
             this.label8.Text = "Date";
-            // 
-            // tenativeComboBox
-            // 
-            this.tenativeComboBox.FormattingEnabled = true;
-            this.tenativeComboBox.Location = new System.Drawing.Point(586, 11);
-            this.tenativeComboBox.Name = "tenativeComboBox";
-            this.tenativeComboBox.Size = new System.Drawing.Size(121, 21);
-            this.tenativeComboBox.TabIndex = 11;
-            this.tenativeComboBox.Visible = false;
-            this.tenativeComboBox.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tenativeComboBox_MouseClick);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(503, 9);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(77, 20);
-            this.label13.TabIndex = 10;
-            this.label13.Text = "Tenative";
-            this.label13.Visible = false;
             // 
             // panel3
             // 
@@ -455,30 +441,16 @@
             this.button3.TabIndex = 13;
             this.button3.Text = "Clear";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button4.Location = new System.Drawing.Point(758, 388);
+            this.button4.Location = new System.Drawing.Point(531, 388);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 14;
             this.button4.Text = "Print";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Visible = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // button7
-            // 
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button7.Location = new System.Drawing.Point(536, 388);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(75, 23);
-            this.button7.TabIndex = 15;
-            this.button7.Text = "Print";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // Form1
             // 
@@ -486,7 +458,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(845, 423);
-            this.Controls.Add(this.button7);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.panel3);
@@ -494,8 +465,6 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.tenativeComboBox);
-            this.Controls.Add(this.label13);
             this.Name = "Form1";
             this.Text = "Training Scheduling Program";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -549,7 +518,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button7;
     }
 }
 

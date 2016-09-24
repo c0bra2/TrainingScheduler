@@ -50,6 +50,8 @@ namespace TrainingScheduler
             vehicalComboBox.Items.Add("Customer Truck: Fifth Wheel");
             vehicalComboBox.Items.Add("Customer Truck: Pintle Hitch");
             vehicalComboBox.Items.Add("Customer Truck");
+            vehicalComboBox.Items.Add("School Bus");
+            vehicalComboBox.Items.Add("Transit/Coach");
             vehicalComboBox.Items.Add("Car Rental");
             vehicalComboBox.Items.Add("Customer's Car");
             vehicalComboBox.Text = "Semi Rental";
@@ -486,15 +488,24 @@ namespace TrainingScheduler
         /// <param name="e"></param>
         private void button7_Click(object sender, EventArgs e)
         {
-            bool hasTest = false;
-            button7.Enabled = false;
-            int totalHours = 0;
-            string filename;
-            string output = "";
-            Driver customer = customerSchedule[0].customer;
-            filename = "Humphrey's" + ".html";
+            try
+            {
+                //valid checks
+                if (firstTextBox.Text == "" || lastTextBox.Text == "")
+                {
+                    MessageBox.Show("Enter a valid name for Customer!");
+                    return;
+                }
 
-            output += @"<!DOCTYPE html>
+                bool hasTest = false;
+                button7.Enabled = false;
+                int totalHours = 0;
+                string filename;
+                string output = "";
+                Driver customer = customerSchedule[0].customer;
+                filename = "Humphrey's" + ".html";
+
+                output += @"<!DOCTYPE html>
 <html>
 <head>
 <style>
@@ -652,49 +663,49 @@ hr {
 </head>
 <body>
 <h1>Humphrey Driver Training and Testing <span class=" + "\"dba" + "\">" + "(DBA)</span></br><span class=" + "\"hed2" + "\">" + "Humphrey Enterprises, Inc.&nbsp&nbsp&nbsp&nbsp</span>" +
- "<span class=" + "\"hed2" + "\">" + "Office:&nbsp&nbsp</span><span class=" + "\"hed" + "\">" + "2089 Corunna Ave. Owosso MI, 48867&nbsp&nbsp&nbsp&nbsp&nbsp</span><span class=" + "\"hed2" + "\">" +
- "Phone:</span><span class=" + "\"hed" + "\">" + "&nbsp&nbsp989-723-7176</span></br><hr><span class=" + "\"hed3" + "\">";
-            if (customer.vehical != "Customer's Car" && customer.vehical != "Car Rental")
-            {
-              output +=  "Department of State Certification #P000422&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" +
- "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" +
- "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" +
- "&nbsp&nbsp</span></h1></br>";
-            }
-            else
-            {
-                output += "Department of State Certification #P000421&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" +
- "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" +
- "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" +
- "&nbsp&nbsp</span></h1></br>";
-            }
-            output += " <p>" + "Customer: " + customer.first_name + " " + customer.last_name + "</br>";
-            if (customer.vehical != "Customer's Car" && customer.vehical != "Car Rental")
-            {
-                output += "CDL Lot: 110 S. Delaney Rd. Owosso MI, 48867</br>";
-            }
-            else
-            {
-                output += "Lot: 2089 Corunna Ave Owosso MI, 48867<br/>";
-            }
-            if (customer.vehical != "Customer's Car" && customer.vehical != "Car Rental")
-            {
-                output += "Vehical: " + customer.vehical + ", " + customer.trans + " Trans, " + customer.brakes + " Brakes <br/>";
-            }
-            else
-            {
-                output += "Vehical: " + customer.vehical + "<br/>";
-            }
-                
-            output += customer.restrictions(true);
-            if (customer.vehical != "Customer's Car" && customer.vehical != "Car Rental")
-            {
-                output += "Class: " + "CDL-" + customer.cdl + "</br>";
-            }
-            output += "Training Rate $" + customer.trainingRate + "/hr</br>";
-            output += "Testing Rate $" + customer.testingRate + "</br>";
-            output += "</p><div class=\"schedule\">" +
-            @"<h3>Training Schedule</h3>
+     "<span class=" + "\"hed2" + "\">" + "Office:&nbsp&nbsp</span><span class=" + "\"hed" + "\">" + "2089 Corunna Ave. Owosso MI, 48867&nbsp&nbsp&nbsp&nbsp&nbsp</span><span class=" + "\"hed2" + "\">" +
+     "Phone:</span><span class=" + "\"hed" + "\">" + "&nbsp&nbsp989-723-7176</span></br><hr><span class=" + "\"hed3" + "\">";
+                if (customer.vehical != "Customer's Car" && customer.vehical != "Car Rental")
+                {
+                    output += "Department of State Certification #P000422&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" +
+       "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" +
+       "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" +
+       "&nbsp&nbsp</span></h1></br>";
+                }
+                else
+                {
+                    output += "Department of State Certification #P000421&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" +
+     "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" +
+     "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp" +
+     "&nbsp&nbsp</span></h1></br>";
+                }
+                output += " <p>" + "Customer: " + customer.first_name + " " + customer.last_name + "</br>";
+                if (customer.vehical != "Customer's Car" && customer.vehical != "Car Rental")
+                {
+                    output += "CDL Lot: 110 S. Delaney Rd. Owosso MI, 48867</br>";
+                }
+                else
+                {
+                    output += "Lot: 2089 Corunna Ave Owosso MI, 48867<br/>";
+                }
+                if (customer.vehical != "Customer's Car" && customer.vehical != "Car Rental")
+                {
+                    output += "Vehical: " + customer.vehical + ", " + customer.trans + " Trans, " + customer.brakes + " Brakes <br/>";
+                }
+                else
+                {
+                    output += "Vehical: " + customer.vehical + "<br/>";
+                }
+
+                output += customer.restrictions(true);
+                if (customer.vehical != "Customer's Car" && customer.vehical != "Car Rental")
+                {
+                    output += "Class: " + "CDL-" + customer.cdl + "</br>";
+                }
+                output += "Training Rate $" + customer.trainingRate + "/hr</br>";
+                output += "Testing Rate $" + customer.testingRate + "</br>";
+                output += "</p><div class=\"schedule\">" +
+                @"<h3>Training Schedule</h3>
             <table>
                 <tr>
                     <th>Date</th>
@@ -704,19 +715,19 @@ hr {
                 </tr>";
 
 
-            for (int i = 0; i < customerSchedule.Count; i++)
-            {
-                if (customerSchedule[i].type == "train")
+                for (int i = 0; i < customerSchedule.Count; i++)
                 {
-                    output += "<tr>";
-                    output += "<td>" + customerSchedule[i].date + "</td>" + "<td>" + customerSchedule[i].time + "</td>" + "<td>" + customerSchedule[i].hours + "</td>" + "<td>" + customerSchedule[i].customer.trainer + "</td>";
-                    output += "</tr>";
-                    totalHours += customerSchedule[i].hoursTrained;
+                    if (customerSchedule[i].type == "train")
+                    {
+                        output += "<tr>";
+                        output += "<td>" + customerSchedule[i].date + "</td>" + "<td>" + customerSchedule[i].time + "</td>" + "<td>" + customerSchedule[i].hours + "</td>" + "<td>" + customerSchedule[i].customer.trainer + "</td>";
+                        output += "</tr>";
+                        totalHours += customerSchedule[i].hoursTrained;
+                    }
                 }
-            }
-            output += "</table></br></br>";
+                output += "</table></br></br>";
 
-            output += @"<h3>Testing Schedule</h3>
+                output += @"<h3>Testing Schedule</h3>
             <table>
                 <tr>
                     <th>Date</th>
@@ -725,53 +736,59 @@ hr {
                     <th>Tester</th>
                 </tr>";
 
-            for (int i = 0; i < customerSchedule.Count; i++)
-            {
-                if (customerSchedule[i].type == "test")
+                for (int i = 0; i < customerSchedule.Count; i++)
                 {
-                    output += "<tr>";
-                    output += "<td>" + customerSchedule[i].date + "</td>" + "<td>" + customerSchedule[i].time + "</td>" + "<td>" + customerSchedule[i].hours + "</td>" + "<td>" + customerSchedule[i].customer.tester + "</td>";
-                    output += "</tr>";
-                    hasTest = true;
+                    if (customerSchedule[i].type == "test" || customerSchedule[i].type == "retest") 
+                    {
+                        output += "<tr>";
+                        output += "<td>" + customerSchedule[i].date + "</td>" + "<td>" + customerSchedule[i].time + "</td>" + "<td>" + customerSchedule[i].hours + "</td>" + "<td>" + customerSchedule[i].customer.tester + "</td>";
+                        output += "</tr>";
+                        hasTest = true;
+                    }
                 }
-            }
-            output += "</table></br></br>";
-            output += "<h3>Summary<span class=\"hed4\">&nbsp(Totals subject to change if deviating from this outline)</span></h3>";
+                output += "</table></br></br>";
+                output += "<h3>Summary<span class=\"hed4\">&nbsp(Totals subject to change if deviating from this outline)</span></h3>";
 
-            output += "<p>Training (" + totalHours + "hrs * $" + customer.trainingRate + "/hr) = $" + totalHours * customer.trainingRate + "<br/>";
-            if (hasTest)
-            {
-                output += "Test = $" + customer.testingRate + "<br/><br/>";
-                output += "Grand Total = $" + ((totalHours * customer.trainingRate) + customer.testingRate);
-            }
-            else
-            {
-                output += "Test = $" + "0" + "<br/><br/>";
-                output += "Grand Total = $" + (totalHours * customer.trainingRate);
-            }
-            output += @"</div></p>
+                output += "<p>Training (" + totalHours + "hrs * $" + customer.trainingRate + "/hr) = $" + totalHours * customer.trainingRate + "<br/>";
+                if (hasTest)
+                {
+                    output += "Test = $" + customer.testingRate + "<br/><br/>";
+                    output += "Grand Total = $" + ((totalHours * customer.trainingRate) + customer.testingRate);
+                }
+                else
+                {
+                    output += "Test = $" + "0" + "<br/><br/>";
+                    output += "Grand Total = $" + (totalHours * customer.trainingRate);
+                }
+                output += @"</div></p>
 
 </body>
 </html>";
 
-            System.IO.File.WriteAllText(filename, output);
-            System.Diagnostics.Process.Start(filename);
-            /*SelectPdf.HtmlToPdf converter = new SelectPdf.HtmlToPdf();
-            SelectPdf.PdfDocument doc = converter.ConvertHtmlString(output);
-            try
-            {
-                doc.Save("Humphrey's.pdf");
+                System.IO.File.WriteAllText(filename, output);
+                System.Diagnostics.Process.Start(filename);
+                /*SelectPdf.HtmlToPdf converter = new SelectPdf.HtmlToPdf();
+                SelectPdf.PdfDocument doc = converter.ConvertHtmlString(output);
+                try
+                {
+                    doc.Save("Humphrey's.pdf");
+                }
+                catch
+                {
+
+                }
+                doc.Close();
+
+
+                System.Diagnostics.Process.Start("Humphrey's.pdf");
+            */
+                button7.Enabled = true;
             }
             catch
             {
-
+                MessageBox.Show("Something went wrong :(");
+                button7.Enabled = true;
             }
-            doc.Close();
-
-            
-            System.Diagnostics.Process.Start("Humphrey's.pdf");
-        */
-            button7.Enabled = true;
         }
 
         private void button3_Click(object sender, EventArgs e)

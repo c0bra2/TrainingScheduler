@@ -19,103 +19,19 @@ namespace TrainingScheduler
         public int trainingRate;
         public int testingRate;
 
-        public string restrictions(bool html)
-        {
-            List<string> res = new List<string>();
-            string outstring = "";
-            if (trans == "Automatic" && vehical != "Car" && vehical != "Car Rental")
-            {
-                res.Add("No Manual");
-            }
-            if ((brakes == "Hydraulic" || brakes == "Partial Air") && (vehical !="Car") && (vehical !="Car Rental"))
-            {
-                res.Add("No Full Air Brakes");
-            }
-            if (vehical == "Customer Truck: Pintle Hitch")
-            {
-                res.Add("No Fifth Wheel");
-            }
-            if (vehical == "Truck Rental")
-            {
-                res.Add("No Fifth Wheel");
-            }
-            if (res.Count == 0)
-            {
-                return "";
-            }
-            outstring += "Restrictions: ";
-            for (int i = 0; i < res.Count; i++)
-            {
-                if (i + 1 != res.Count)
-                {
-                    //not last value in list
-                    outstring += res[i] + ", ";
-                }
-                else
-                {
-                    outstring += res[i];
-                }
-            }
-            if (html)
-            {
-                return outstring + "<br/>";
-            }
-            else
-            {
-                return outstring + "\r\n";
-            }
-        }
-
-        public void setRate(string v, bool retest)
+        public void setRate(string v)
         {
             if (v == "Semi Rental")
             {
-                if (!retest)
-                {
-                    trainingRate = 150;
-                    testingRate = 450;
-                }
-                else
-                {
-                    trainingRate = 150;
-                    testingRate = 350;
-                }
+                trainingRate = 150;
+                testingRate = 450;
             }
             else if (v == "Truck Rental")
             {
-                if (!retest)
-                {
-                    trainingRate = 150;
-                    testingRate = 300;
-                }
+                trainingRate = 150;
+                testingRate = 400;
             }
-            else if (v == "Car Rental")
-            {
-                if (!retest)
-                {
-                    trainingRate = 65;
-                    testingRate = 110;
-                }
-                else
-                {
-                    trainingRate = 65;
-                    testingRate = 105;
-                }
-            }
-            else if (v == "Customer's Car")
-            {
-                if (!retest)
-                {
-                    trainingRate = 65;
-                    testingRate = 65;
-                }
-                else
-                {
-                    trainingRate = 65;
-                    testingRate = 60;
-                }
-            }
-            else
+            else 
             {
                 trainingRate = 75;
                 testingRate = 200;
