@@ -1,0 +1,34 @@
+Customer: R S
+CDL Lot: 110 S. Delaney Rd. Owosso MI, 48867
+Vehical: Semi Rental, w/Manual Full Air
+Class: CDL-A
+Training Rate $150/hr
+Testing Rate $450
+
+
+Training Schedule
+Date               Time          Length           Trainer   
+-----------------------------------------------------------------
+9/15/2016          9:00AM        4hrs             Chris Humphrey      
+9/15/2016          9:00AM        4hrs             Chris Humphrey      
+
+
+
+
+
+Testing Schedule
+Date               Time          Length           Trainer   
+-----------------------------------------------------------------
+9/15/2016          9:00AM        3hrs             Patrick Humphrey    
+
+
+
+
+
+
+Summary (Totals subject to change if deviating from this outline)
+-----------------------------------------------------------------
+Training (8hrs * $150/hr) = $1200
+Test = $450
+
+Grand Total = $1200450

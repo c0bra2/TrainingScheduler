@@ -15,6 +15,7 @@ namespace TrainingScheduler
         public int hoursTrained = 0;
         public string hours;
         public string tentative;
+        public string type;
 
         public void  setHours(string h)
         {
